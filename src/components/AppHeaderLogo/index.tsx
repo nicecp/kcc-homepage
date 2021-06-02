@@ -22,7 +22,7 @@ const AppHeaderLogo: React.FunctionComponent<AppHeaderLogoProps> = () => {
   return (
     <AppHeaderLogoWrap>
       <img src={require('../../assets/images/home/header-logo.png').default} width="35px" height="auto" />
-      <Text className="kcc-name">{KCC.fullName}</Text>
+      <Text className="kcc-name">{KCC.FULLNAME}</Text>
     </AppHeaderLogoWrap>
   )
 }

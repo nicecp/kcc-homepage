@@ -1,4 +1,5 @@
 export const KCC = {
-  fullName: 'KuCoin Community Chain',
-  abbr: 'KCC',
+  FULLNAME: 'KuCoin Community Chain',
+  ABBR: 'KCC',
+  FAUCET: 'https://faucet-testnet.kcc.network/',
 }
