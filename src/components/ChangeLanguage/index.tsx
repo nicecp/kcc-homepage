@@ -13,7 +13,6 @@ const MenuWrap = styled.div`
 const ChangeLanguage: React.FunctionComponent<ChangeLanguageProps> = () => {
   const { i18n } = useTranslation()
   const selectChange = (code: string) => {
-    console.log(code)
     i18n.changeLanguage(code)
   }
 

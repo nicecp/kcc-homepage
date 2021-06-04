@@ -1,0 +1,37 @@
+.ant-menu-submenu-open::after,
+.ant-menu-submenu-open::before,
+.ant-menu-submenu-open {
+  border-bottom: none !important;
+  transition: none !important;
+}
+
+.ant-menu-submenu-active::before,
+.ant-menu-submenu-active::after,
+.ant-menu-submenu-active {
+  border-bottom: none !important;
+  transition: none !important;
+}
+
+.arrow-icon,
+.sub-menu {
+  transition: all 0.5s ease-in;
+  border-bottom: none;
+}
+.sub-menu:hover {
+  .arrow-icon {
+    transform: rotate(180deg);
+  }
+}
+
+.anticon {
+  transition: none !important;
+}
+
+.ant-menu-horizontal {
+  border: none !important;
+}
+
+.ant-menu-horizontal > .ant-menu-item::after,
+.ant-menu-horizontal > .ant-menu-submenu::after {
+  border-bottom: none !important;
+}

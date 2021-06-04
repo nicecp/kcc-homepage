@@ -15,13 +15,15 @@ const AppHeaderLogoWrap = styled.div`
 const Text = styled.span`
   font-size: 20px;
   margin-left: 8px;
-  font-weight: bold;
+  font-family: URWDIN-Demi;
+  vertical-align: middle;
+  padding-top: 8px;
 `
 
 const AppHeaderLogo: React.FunctionComponent<AppHeaderLogoProps> = () => {
   return (
     <AppHeaderLogoWrap>
-      <img src={require('../../assets/images/home/header-logo.png').default} width="35px" height="auto" />
+      <img src="/logo/Icon/KuCoinCommunityChain_Icon.png" width="35px" height="auto" />
       <Text className="kcc-name">{KCC.FULLNAME}</Text>
     </AppHeaderLogoWrap>
   )

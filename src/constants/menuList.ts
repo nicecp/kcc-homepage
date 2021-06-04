@@ -20,7 +20,7 @@ export interface NavItemGroupType {
   groupMember: NavItemChildrenType[]
 }
 
-export const MenuList = [
+export const MENU_LIST = [
   {
     name: 'Home',
     route: '/',

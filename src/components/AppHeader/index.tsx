@@ -24,12 +24,10 @@ const HeaderLeftWrap = styled.div`
 const AppHeaderContent = styled(HeaderLeftWrap)`
   justify-content: space-between;
   width: 100%;
-  width: 1200px;
+  max-width: 1200px;
 `
 
 const AppHeader: React.FunctionComponent = () => {
-  const { t, i18n } = useTranslation()
-
   return (
     <AppHeaderWrap>
       <AppHeaderContent>

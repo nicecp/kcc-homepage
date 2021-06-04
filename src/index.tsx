@@ -4,14 +4,18 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import './utils/i18n'
 
-import './index.less'
 import Providers from './Providers'
-// import 'antd/dist/antd.less'
+import ApplicationUpdater from './state/application/updater'
+
+import './index.less'
 
 ReactDOM.render(
   <React.StrictMode>
     <Providers>
-      <App />
+      <>
+        <ApplicationUpdater />
+        <App />
+      </>
     </Providers>
   </React.StrictMode>,
   document.getElementById('root')

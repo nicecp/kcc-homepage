@@ -1,13 +1,22 @@
 import React from 'react'
 import { FunctionComponent } from 'react'
+import styled from 'styled-components'
+import AppFooter from '../components/AppFooter'
 import AppHeader from '../components/AppHeader/index'
+
+const AppContentWrap = styled.div`
+  height: auto;
+  min-height: calc(100vh - 400px);
+`
 
 // Not fullscreen mode
 const AppBaseLayout: FunctionComponent = ({ children }) => {
   return (
-    <div className="app-base-layout-container">
+    <>
       <AppHeader />
-    </div>
+      <AppContentWrap>{children}</AppContentWrap>
+      <AppFooter />
+    </>
   )
 }
 
