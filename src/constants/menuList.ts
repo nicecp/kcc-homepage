@@ -127,7 +127,7 @@ export const MENU_LIST = [
       {
         title: 'Grant Program',
         subTitle: 'support for community development and research',
-        route: '/community/grant',
+        route: '/community/grants',
         icon: require('../assets/Icons/grants.png').default,
       },
     ],

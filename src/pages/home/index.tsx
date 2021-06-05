@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import { Button, Input } from 'antd'
+import axios from 'axios'
+
 import Column from '../../components/Column/index'
 import { ParagraphText, TitleText } from '../../components/Common'
 import Row, { RowBetween } from '../../components/Row/index'
@@ -9,32 +11,32 @@ import SloganPicture from '../../components/SloganPicture'
 import { DivideLine } from '../../components/Common/index'
 import NoticeBar from '../../components/NoticeBar'
 
-import './index.less'
 import { ColumnCenter } from '../../components/Column/index'
-import axios from 'axios'
 import { KCC } from '../../constants/index'
 import ContactCard from '../../components/ContactCard/index'
 import { CenterRow } from '../../components/Row/index'
 
+import './index.less'
+
 export interface HomePageProps {}
 
-const HomePageWrap = styled.div``
+export const HomePageWrap = styled.div``
 
-const BannerWrap = styled.div`
+export const BannerWrap = styled.div`
   height: 380px;
   display: flex;
   flex-flow: row no-wrap;
   justify-content: center;
   align-items: center;
 `
-const BannerContentWrap = styled.div`
+export const BannerContentWrap = styled.div`
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
   align-items: flex-start;
   width: 1200px;
 `
-const BannerTitle = styled.span`
+export const BannerTitle = styled.span`
   line-height: 64px;
   font-size: 60px;
   font-family: PingFangSC-Medium, PingFang SC;
@@ -42,7 +44,7 @@ const BannerTitle = styled.span`
   color: #01081e;
   line-height: 64px;
 `
-const BannerDescription = styled.span`
+export const BannerDescription = styled.span`
   opacity: 0.6;
   font-family: URWDIN-Regular;
   font-size: 20px;
@@ -52,7 +54,7 @@ const BannerDescription = styled.span`
   max-width: 640px;
 `
 
-const BaseWrap = styled(Column)`
+export const BaseWrap = styled(Column)`
   width: 940px;
   margin: 0 auto;
 `
@@ -86,7 +88,7 @@ const Characteristics = [
   },
 ]
 
-const MailSubText = styled.span`
+export const MailSubText = styled.span`
   width: 312px;
   height: 24px;
   font-size: 16px;

@@ -26,6 +26,7 @@ export const AutoRow = styled(Row)<{ gap?: string; justify?: string }>`
 `
 
 export const CenterRow = styled(AutoRow)`
+  flex-flow: row nowrap;
   align-items: center;
 `
 

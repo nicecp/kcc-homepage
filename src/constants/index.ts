@@ -1,6 +1,8 @@
 export const KCC = {
   FULLNAME: 'KuCoin Community Chain',
   ABBR: 'KCC',
+  EXPLORER: 'https://explorer-testnet.kcc.network/',
+  TEST_EXPLORER: 'https://scan-testnet.kcc.network/',
   FAUCET: 'https://faucet-testnet.kcc.network/',
   DOCS_URL: 'https://docs.kcc.network/#/',
   CONTACT_LIST: [

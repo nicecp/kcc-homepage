@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import AppHeaderLogo from '../AppHeaderLogo'
 import AppMenu from '../AppMenu'
 import ChangeLanguage from '../ChangeLanguage/index'
+import KccLogo from '../Logo/KccLogo'
 
 const AppHeaderWrap = styled.div`
   display: flex;
@@ -32,7 +33,7 @@ const AppHeader: React.FunctionComponent = () => {
     <AppHeaderWrap>
       <AppHeaderContent>
         <HeaderLeftWrap>
-          <AppHeaderLogo />
+          <KccLogo styles={{ width: '100px', textAlign: 'left' }} />
           <AppMenu />
         </HeaderLeftWrap>
         <ChangeLanguage />

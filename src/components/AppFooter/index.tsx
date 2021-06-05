@@ -4,8 +4,10 @@ import Row from '../Row'
 import Column from '../Column/index'
 import { KCC } from '../../constants'
 import { useTranslation } from 'react-i18next'
-import { RowBetween } from '../Row/index'
+import { RowBetween, CenterRow } from '../Row/index'
 import { FOOTER_LIST } from '../../constants/footerList'
+import KccLogo from '../Logo/KccLogo'
+import { useHistory } from 'react-router'
 
 export interface AppFooterProps {}
 
@@ -51,6 +53,10 @@ const FooterNavText = styled.span`
   font-size: 14px;
   color: #ffffff;
   line-height: 32px;
+  cursor: pointer;
+  &:hover {
+    font-weight: bold;
+  }
 `
 
 const CopyRightText = styled.div`
@@ -68,9 +74,26 @@ const CopyRightText = styled.div`
 const AppFooter: React.FunctionComponent<AppFooterProps> = () => {
   const { t } = useTranslation()
 
+  const router = useHistory()
+
+  const nav2Target = (route: string | undefined) => {
+    if (route) {
+      if (route.startsWith('/')) {
+        router.push(route)
+      }
+      if (route.startsWith('http')) {
+        window.open(route, '_blank')
+      }
+    }
+  }
+
   const FooterNavList = FOOTER_LIST.map((item, index) => {
     const children = item.children.map((nav, index) => {
-      return <FooterNavText key={index}>{t(nav.navText)}</FooterNavText>
+      return (
+        <FooterNavText key={index} onClick={nav2Target.bind(null, nav.navRoute)}>
+          {t(nav.navText)}
+        </FooterNavText>
+      )
     })
     return (
       <Column key={index}>
@@ -84,10 +107,15 @@ const AppFooter: React.FunctionComponent<AppFooterProps> = () => {
     <AppFooterWrap>
       <AppFooterContentWrap>
         <Row>
-          <Column style={{ width: '355px', paddingTop: '15px', marginRight: '95px' }}>
-            <FooterLogoImg src={require('../../assets/images/home/header-logo.png').default} />
-            <ChainText>{t(KCC.FULLNAME)}</ChainText>
-          </Column>
+          <CenterRow
+            style={{
+              width: '355px',
+              justifyContent: 'flex-start',
+              alignItems: 'center',
+            }}
+          >
+            <KccLogo styles={{ width: '180px', textAlign: 'left' }} />
+          </CenterRow>
           <RowBetween>{FooterNavList}</RowBetween>
         </Row>
         <CopyRightText>CopyRight © 2017 - 2020 KuChain.com. All Rights Reserved.</CopyRightText>

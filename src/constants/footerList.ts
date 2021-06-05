@@ -1,3 +1,5 @@
+import { KCC } from '.'
+
 // footer nanList
 export const FOOTER_LIST = [
   {
@@ -30,11 +32,11 @@ export const FOOTER_LIST = [
       },
       {
         navText: 'Testnet Explorer',
-        navRoute: '',
+        navRoute: KCC.TEST_EXPLORER,
       },
       {
         navText: 'Testnet Faucet',
-        navRoute: '',
+        navRoute: KCC.FAUCET,
       },
     ],
   },

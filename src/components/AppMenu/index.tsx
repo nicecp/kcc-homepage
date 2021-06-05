@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { NavItemType, NavItemChildrenType, NavItemGroupType, MENU_LIST } from '../../constants/menuList'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
 import { DownOutlined } from '@ant-design/icons'
 import Row from '../Row/index'
 import Column from '../Column'
@@ -63,8 +63,21 @@ const TitleWrap = styled(Column)`
 `
 
 const NavItem: React.FunctionComponent<NavItemChildrenType> = (props) => {
+  const router = useHistory()
+
+  const nav2Target = (route: string | undefined) => {
+    if (route) {
+      if (route.startsWith('/')) {
+        router.push(route)
+      }
+      if (route.startsWith('http')) {
+        window.open(route, '_blank')
+      }
+    }
+  }
+
   return (
-    <NavItemWrap>
+    <NavItemWrap onClick={nav2Target.bind(null, props.route)}>
       <NavIcon src={props.icon ? props.icon : require('../../assets/images/home/wechat.png').default}></NavIcon>
       <TitleWrap>
         <NavTitle>{props.title}</NavTitle>

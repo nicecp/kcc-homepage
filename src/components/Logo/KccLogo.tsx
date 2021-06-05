@@ -1,4 +1,6 @@
 import React, { CSSProperties } from 'react'
+import { useHistory } from 'react-router'
+import styled from 'styled-components'
 import './kcc-logo.less'
 
 export enum PictureType {
@@ -6,6 +8,9 @@ export enum PictureType {
   'png',
 }
 
+const Image = styled.img`
+  cursor: pointer;
+`
 interface KccLogoProps {
   abbr?: boolean
   lang?: string
@@ -20,6 +25,12 @@ const KccLogo: React.FunctionComponent<KccLogoProps> = ({
   sourceType = PictureType.svg,
   styles,
 }) => {
+  const router = useHistory()
+
+  const navToHome = () => {
+    router.push('/')
+  }
+
   const generateLogoPath = (abbr: boolean, lang: string, sourceType: PictureType) => {
     let folder = ''
     if (abbr) {
@@ -36,13 +47,7 @@ const KccLogo: React.FunctionComponent<KccLogoProps> = ({
     return generateLogoPath(abbr, lang, sourceType)
   }, [lang, abbr, sourceType])
 
-  console.log(logoSource)
-
-  return (
-    <div className="kcc-logo-container" style={styles}>
-      <img src={logoSource} width="100%" height="auto" />
-    </div>
-  )
+  return <Image src={logoSource} style={styles} onClick={navToHome} />
 }
 
 export default React.memo(KccLogo)

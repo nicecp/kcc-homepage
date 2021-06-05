@@ -4,6 +4,7 @@ import { HashRouter, Route, Switch } from 'react-router-dom'
 import AppLayout from './layouts/AppLayout'
 
 import Home from './pages/home/'
+import Grants from './pages/grants/index'
 
 import './App.less'
 
@@ -13,7 +14,8 @@ export default function App() {
       <HashRouter>
         <AppLayout>
           <Switch>
-            <Route path="/" component={Home} />
+            <Route path="/" exact={true} component={Home} />
+            <Route path="/community/grants" exact={true} component={Grants} />
           </Switch>
         </AppLayout>
       </HashRouter>
