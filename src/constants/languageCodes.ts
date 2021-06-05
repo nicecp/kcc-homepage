@@ -29,9 +29,10 @@ export const VI = { code: 'vi', language: 'Tiếng Việt' }
 
 export const allLanguages = [
   EN,
-  AR,
-  BN,
   ZHCN,
+  /*   AR,
+  BN,
+
   ZHTW,
   NL,
   FIL,
@@ -55,5 +56,5 @@ export const allLanguages = [
   TA,
   TR,
   UK,
-  VI,
+  VI, */
 ]

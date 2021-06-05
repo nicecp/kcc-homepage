@@ -11,14 +11,15 @@ export interface PictureProps {
   direction: string
 }
 
-const PictureWrap = styled(Row)`
+const PictureWrap = styled(Row)<{ direction: string }>`
   align-items: center;
-  justify-content: space-between;
+  justify-content: ${({ direction }) => (direction === 'left' ? 'space-between' : 'flex-start')};
 `
 const ImageDescription = styled(ParagraphText)<{ direction: string }>`
   order: ${({ direction }) => (direction === 'left' ? 1 : 2)};
   max-width: 480px;
   text-align: justify;
+  padding-left: ${({ direction }) => (direction === 'left' ? '0px' : '80px')};
 `
 
 const Image = styled.img<{ width: string; direction: string }>`
@@ -29,8 +30,8 @@ const Image = styled.img<{ width: string; direction: string }>`
 const SloganPicture: React.FunctionComponent<PictureProps> = (props) => {
   const { t } = useTranslation()
   return (
-    <PictureWrap>
-      <Image src={props.url} width={props.width ?? '100%'} direction={props.direction}></Image>
+    <PictureWrap direction={props.direction}>
+      <Image src={props.url} width={props.width ?? '240px'} direction={props.direction}></Image>
       <ImageDescription direction={props.direction}>{t(props.description)}</ImageDescription>
     </PictureWrap>
   )

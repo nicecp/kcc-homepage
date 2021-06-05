@@ -1,19 +1,19 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const Row = styled.div`
   width: 100%;
   display: flex;
   padding: 0;
-`;
+`
 
 export const RowBetween = styled(Row)`
   justify-content: space-between;
-`;
+`
 
 export const RowFlat = styled.div`
   display: flex;
   align-items: flex-end;
-`;
+`
 
 export const AutoRow = styled(Row)<{ gap?: string; justify?: string }>`
   flex-wrap: wrap;
@@ -23,11 +23,15 @@ export const AutoRow = styled(Row)<{ gap?: string; justify?: string }>`
   & > * {
     margin: ${({ gap }) => gap} !important;
   }
-`;
+`
+
+export const CenterRow = styled(AutoRow)`
+  align-items: center;
+`
 
 export const RowFixed = styled(Row)<{ gap?: string; justify?: string }>`
   width: fit-content;
   margin: ${({ gap }) => gap && `-${gap}`};
-`;
+`
 
-export default Row;
+export default Row

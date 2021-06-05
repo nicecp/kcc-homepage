@@ -1,20 +1,15 @@
-import { Menu } from 'antd'
-
 import React from 'react'
 import styled from 'styled-components'
 import { NavItemType, NavItemChildrenType, NavItemGroupType, MENU_LIST } from '../../constants/menuList'
 import { NavLink } from 'react-router-dom'
-
 import { DownOutlined } from '@ant-design/icons'
-
 import Row from '../Row/index'
-
 import Column from '../Column'
-
-import './index.less'
-import { FunctionComponent } from 'react'
 import { DivideLine } from '../Common'
 import { RowBetween } from '../Row/index'
+import { Menu } from 'antd'
+
+import './index.less'
 
 export interface AppMenuProps {}
 
@@ -34,7 +29,7 @@ const NavTitle = styled.span`
   margin: 0;
 `
 
-const NavSubTitle = styled.span`
+const NavSubTitle = styled.div`
   opacity: 0.6;
   font-family: URWDIN-Medium;
   font-size: 12px;
@@ -43,15 +38,18 @@ const NavSubTitle = styled.span`
   text-align: center;
   padding: 0;
   margin: 0;
+  max-width: 200px;
+  word-wrap: wrap;
+  white-space: wrap !important;
+  text-align: left;
 `
 
 const NavItemWrap = styled.div`
-  border: 1px solid red;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
   align-items: flex-start;
-  padding-top: 28px;
+  padding: 14px 0px;
 `
 
 const NavIcon = styled.img`
@@ -65,15 +63,12 @@ const TitleWrap = styled(Column)`
 `
 
 const NavItem: React.FunctionComponent<NavItemChildrenType> = (props) => {
-  console.log(props)
   return (
     <NavItemWrap>
-      <NavIcon
-        src={props.icon ? require(props.icon) : require('../../assets/images/home/wechat.png').default}
-      ></NavIcon>
+      <NavIcon src={props.icon ? props.icon : require('../../assets/images/home/wechat.png').default}></NavIcon>
       <TitleWrap>
         <NavTitle>{props.title}</NavTitle>
-        <NavSubTitle>{props.subTitle}</NavSubTitle>
+        <NavSubTitle style={{ whiteSpace: 'normal' }}>{props.subTitle}</NavSubTitle>
       </TitleWrap>
     </NavItemWrap>
   )
@@ -128,20 +123,20 @@ const AppMenu: React.FunctionComponent<AppMenuProps> = () => {
 
         const groupItemDom = groupMember.map((groupChild) => {
           return (
-            <>
-              <Menu.Item key={groupChild.title} style={{ height: 'auto', lineHeight: '20px' }}>
-                <NavItem {...groupChild} />
-              </Menu.Item>
-            </>
+            <Menu.Item key={groupChild.title} style={{ height: 'auto', lineHeight: '20px' }}>
+              <NavItem {...groupChild} />
+            </Menu.Item>
           )
         })
 
         return (
           <Menu.ItemGroup key={index} title={group.groupName}>
             {groupItemDom}
-            <RowBetween>
-              <DivideLine style={{ background: ' #F1F4F7', margin: '24px' }} />
-            </RowBetween>
+            {groupList.length - 1 !== index ? (
+              <RowBetween>
+                <DivideLine style={{ background: ' #F1F4F7', margin: '12px' }} />
+              </RowBetween>
+            ) : null}
           </Menu.ItemGroup>
         )
       })
@@ -170,7 +165,7 @@ const AppMenu: React.FunctionComponent<AppMenuProps> = () => {
 
   return (
     <MenuWrap>
-      <Menu mode="horizontal" style={{ border: 'none' }}>
+      <Menu selectedKeys={[]} mode="horizontal" style={{ border: 'none' }}>
         {MenuListDom}
       </Menu>
     </MenuWrap>
