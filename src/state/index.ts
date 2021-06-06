@@ -12,9 +12,8 @@ type MergedState = {
 const PERSISTED_KEYS: string[] = ['application']
 const loadedState = load({ states: PERSISTED_KEYS }) as MergedState
 
-console.log('loadedState', loadedState)
 if (loadedState.application) {
-  loadedState.application.darkMode = getThemeCache()
+  loadedState.application = { ...loadedState.application, darkMode: getThemeCache() }
 }
 
 const store = configureStore({
