@@ -1,5 +1,6 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
+import store from '../state'
 
 // load language templates
 const templates = require.context('../locales/', true, /\.json$/)
@@ -20,8 +21,9 @@ export default i18n
     resources: {
       ...lngTemplates,
     } as any,
-    lng: 'en',
+    lng: store.getState().application.language,
     fallbackLng: 'en',
+    preload: ['en', 'zh-CN'],
     interpolation: {
       escapeValue: false,
     },

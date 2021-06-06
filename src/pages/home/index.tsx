@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import { Button, Input } from 'antd'
 import axios from 'axios'
+import { RightOutlined } from '@ant-design/icons'
 
 import Column from '../../components/Column/index'
 import { ParagraphText, TitleText } from '../../components/Common'
@@ -39,7 +40,7 @@ export const BannerContentWrap = styled.div`
 export const BannerTitle = styled.span`
   line-height: 64px;
   font-size: 60px;
-  font-family: PingFangSC-Medium, PingFang SC;
+  font-family: URWDIN-Bold, PingFangSC-Medium, PingFang SC;
   font-weight: 500;
   color: #01081e;
   line-height: 64px;
@@ -158,7 +159,8 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
             )}
           </BannerDescription>
           <Button type="primary" style={{ marginTop: '24px', width: '145px', height: '36px' }}>
-            Button
+            {t(`Get Start Now`)}
+            <RightOutlined style={{ fontSize: '12px' }} />
           </Button>
         </BannerContentWrap>
       </BannerWrap>
