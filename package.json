@@ -1,6 +1,6 @@
 {
   "name": "kcc-official-website",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "scripts": {
     "start": "craco start",
@@ -22,7 +22,9 @@
     "react-i18next": "^11.10.0",
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
+    "react-slick": "^0.28.1",
     "redux-localstorage-simple": "^2.4.0",
+    "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.0",
     "web-vitals": "^1.0.1"
   },
@@ -38,6 +40,7 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/react-router-dom": "^5.1.7",
+    "@types/react-slick": "^0.23.4",
     "@types/styled-components": "^5.1.9",
     "@types/webpack-env": "^1.16.0",
     "commitizen": "^4.2.1",

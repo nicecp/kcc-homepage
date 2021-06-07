@@ -5,6 +5,7 @@ export const KCC = {
   TEST_EXPLORER: 'https://scan-testnet.kcc.network/',
   FAUCET: 'https://faucet-testnet.kcc.network/',
   DOCS_URL: 'https://docs.kcc.network/#/',
+  MEDIA_API: 'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@ryan-corp-2020',
   CONTACT_LIST: [
     {
       app: 'wechat',
