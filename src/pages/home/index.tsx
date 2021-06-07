@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
-import { Button, Input } from 'antd'
+import { Button, Input, message } from 'antd'
 import axios from 'axios'
 import { RightOutlined } from '@ant-design/icons'
 
@@ -115,7 +115,6 @@ const PartnerItemWrap = styled(CenterRow)`
   background: #f2f4f7;
   border-radius: 12px;
 `
-
 const HomePage: React.FunctionComponent<HomePageProps> = () => {
   const CharacteristicsComponent = Characteristics.map((item, index) => {
     return (
@@ -140,10 +139,16 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
   const { t } = useTranslation()
 
   const test = async () => {
-    const res = await axios({
+    /*  const res = await axios({
       url: 'https://qq.us6.list-manage.com/subscribe/post?u=f799a2a519200ad9233ddf0e5&id=ed053649d8&c=jQuery1900007711740440716763_1622803834036&EMAIL=788999999%40qq.com&b_f799a2a519200ad9233ddf0e5_ed053649d8=&subscribe=Subscribe&_=1622803834037',
       data: {},
+    }) */
+
+    const res = await axios({
+      url: 'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@ryan-corp-2020',
+      data: {},
     })
+
     console.log(res)
   }
 
@@ -177,7 +182,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
           </ImageWrap>
           <ParagraphText style={{ width: '480px' }}>
             {t(
-              '库币社区链KuCoin Community Chain(KCC)是库币为广大社区用户构建的，基于以太坊源代码开发的，高性能和去中心化的公链，目的是为广大社区用户提供更加高速便捷并且低成本的区块链使用体验。'
+              '1.Fully compatible with Ethereum and ERC-20 smart contracts, with extremely low migration costs KuCoin 2. Token (KCS) will serve as the only core fuel and native token for KCC and can be used in scenarios such as gas fee payment. 3.A block every 3 seconds results in faster transaction confirmation and higher chain performance'
             )}
           </ParagraphText>
         </RowBetween>
