@@ -32,7 +32,7 @@ const SloganPicture: React.FunctionComponent<PictureProps> = (props) => {
   return (
     <PictureWrap direction={props.direction}>
       <Image src={props.url} width={props.width ?? '240px'} direction={props.direction}></Image>
-      <ImageDescription direction={props.direction}>{t(props.description)}</ImageDescription>
+      <ImageDescription direction={props.direction}>{t(`${props.description}`)}</ImageDescription>
     </PictureWrap>
   )
 }

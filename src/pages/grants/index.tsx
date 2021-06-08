@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { BaseWrap } from '../home/index'
 import Row, { RowBetween, CenterRow } from '../../components/Row/index'
 import { DivideLine, ParagraphText, TitleText } from '../../components/Common'
-import { ColumnCenter } from '../../components/Column'
+import Column, { ColumnCenter } from '../../components/Column'
 import { AutoColumn } from '../../components/Column/index'
 
 export interface GrantsPageProps {}
@@ -41,6 +41,9 @@ const ParagraphIcon = styled.img`
   margin-left: 20px;
   width: 30px;
 `
+const SmallText = styled.div`
+  font-size: 10px;
+`
 
 const GrantsPage: React.FunctionComponent<GrantsPageProps> = () => {
   const { t } = useTranslation()
@@ -50,9 +53,11 @@ const GrantsPage: React.FunctionComponent<GrantsPageProps> = () => {
       {/* banner */}
       <BannerWrap className="home-banner-container">
         <BannerContentWrap>
-          <BannerTitle>{t('KCC资助计划')}</BannerTitle>
+          <BannerTitle>{t('Grant Program')}</BannerTitle>
           <BannerDescription>
-            {t('为了支持我们的使命，KCC 基金会为Dapp领域的开发和研究提供项目资金资助。')}
+            {t(
+              'In support of our mission, the KCS Foundation grants program funds software development and research in the field of decentralized software protocols.'
+            )}
           </BannerDescription>
           <Button type="primary" style={{ marginTop: '24px', width: '145px', height: '36px' }}>
             {t('Apply Now')}
@@ -64,11 +69,11 @@ const GrantsPage: React.FunctionComponent<GrantsPageProps> = () => {
 
       <BaseWrap style={{ paddingTop: '120px' }}>
         <CenterRow justify="space-between">
-          <ParagraphText style={{ width: '480px' }}>
-            {t(
-              `KuChain 使用Tendermint BFT并基于Cosmos SDK的模块化功能，这使得KuChain 可以更好的支持跨链及链上资产的高效交换。下面是KuChain 的产品架构图：,KuChain 使用Tendermint BFT并基于Cosmos SDK的模块化功能，这使得KuChain 可以更好的支持跨链及链上资产的高效交换。下面是KuChain 的产品架构图：,KuChain 使用Tendermint BFT并基于Cosmos SDK的模块化功能，这使得KuChain 可以更好的支持跨链及链上资产的高效交换。下面是KuChain 的产品架构图：`
-            )}
-          </ParagraphText>
+          <Column>
+            <ParagraphText style={{ width: '480px' }}>{t('Grant Introduce 1')}</ParagraphText>
+            <ParagraphText style={{ width: '480px' }}>{t('Grant Type 1')}</ParagraphText>
+            <ParagraphText style={{ width: '480px' }}>{t('Grant Type 2')}</ParagraphText>
+          </Column>
 
           <ColumnCenter
             style={{
@@ -101,14 +106,10 @@ const GrantsPage: React.FunctionComponent<GrantsPageProps> = () => {
           </ColumnCenter>
           <AutoColumn style={{ width: '610px' }}>
             <Row>
-              <ParagraphTitle>{t(`Software Development`)}</ParagraphTitle>
+              <ParagraphTitle>{t(`Development`)}</ParagraphTitle>
               {/*  <ParagraphIcon src={require('../../')} /> */}
             </Row>
-            <ParagraphText style={{ marginTop: '10px' }}>
-              {t(
-                `KuCoin的产品架构图：KuChain 使用Tendermint BFT并基于Cosmos SDK的模块化功能，这使得KuChain 可以更好的支持跨链及链上资产的高效交换。下面是KuChain 的产品架构图：`
-              )}
-            </ParagraphText>
+            <ParagraphText style={{ marginTop: '10px' }}>{t(`Grant Introduce 2`)}</ParagraphText>
 
             <Row style={{ marginTop: '44px' }}>
               <ParagraphTitle>{t(`Research`)}</ParagraphTitle>
@@ -116,8 +117,11 @@ const GrantsPage: React.FunctionComponent<GrantsPageProps> = () => {
             </Row>
             <ParagraphText style={{ marginTop: '10px' }}>
               {t(
-                `KuCoin的产品架构图：KuChain 使用Tendermint BFT并基于Cosmos SDK的模块化功能，这使得KuChain 可以更好的支持跨链及链上资产的高效交换。下面是KuChain 的产品架构图：,KuChain 使用Tendermint BFT并基于Cosmos SDK的模块化功能，这使得KuChain 可以更好的支持跨链及链上资产的高效交换。下面是KuChain 的产品架构图：`
+                `KCS Foundation funds research projects that advance and explore protocols in the  Blockchain Technology Stack`
               )}
+
+              <SmallText>- {t(`Analysis of existing protocols and implementations`)}</SmallText>
+              <SmallText>- {t(`Security testing`)}</SmallText>
             </ParagraphText>
           </AutoColumn>
         </CenterRow>
@@ -129,10 +133,10 @@ const GrantsPage: React.FunctionComponent<GrantsPageProps> = () => {
       <BaseWrap style={{ padding: '0px 0  100px 0' }}>
         <ColumnCenter>
           <TitleText>{t('Open Grants Program')}</TitleText>
-          <MailSubText style={{ width: '660px', textAlign: 'center' }}>
-            {t(
-              'This program offers dunding for smaller technical grants of up to $30k.These applications are tracked transparently on Github and disbursed in cryptocurrencies.'
-            )}
+          <MailSubText style={{ width: 'auto', textAlign: 'left' }}>
+            {t('Grant Payment Amount')}
+            <br />
+            {t('Grant Payment')}
           </MailSubText>
         </ColumnCenter>
         <CenterRow justify="center" style={{ marginTop: '42px' }}>

@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { NavItemType, NavItemChildrenType, NavItemGroupType, MENU_LIST } from '../../constants/menuList'
 import { NavLink, useHistory } from 'react-router-dom'
 import { DownOutlined } from '@ant-design/icons'
+import { useTranslation } from 'react-i18next'
+
 import Row from '../Row/index'
 import Column from '../Column'
 import { DivideLine } from '../Common'
@@ -41,7 +43,8 @@ const NavSubTitle = styled.div`
   max-width: 200px;
   word-wrap: wrap;
   white-space: wrap !important;
-  text-align: left;
+  text-align: left;import { useTranslation } from 'react-i18next';
+
 `
 
 const NavItemWrap = styled.div`
@@ -63,6 +66,8 @@ const TitleWrap = styled(Column)`
 `
 
 const NavItem: React.FunctionComponent<NavItemChildrenType> = (props) => {
+  const { t } = useTranslation()
+
   const router = useHistory()
 
   const nav2Target = (route: string | undefined) => {
@@ -80,21 +85,23 @@ const NavItem: React.FunctionComponent<NavItemChildrenType> = (props) => {
     <NavItemWrap onClick={nav2Target.bind(null, props.route)}>
       <NavIcon src={props.icon ? props.icon : require('../../assets/images/home/wechat.png').default}></NavIcon>
       <TitleWrap>
-        <NavTitle>{props.title}</NavTitle>
-        <NavSubTitle style={{ whiteSpace: 'normal' }}>{props.subTitle}</NavSubTitle>
+        <NavTitle>{t(`${props.title}`)}</NavTitle>
+        <NavSubTitle style={{ whiteSpace: 'normal' }}>{t(`${props.subTitle}`)}</NavSubTitle>
       </TitleWrap>
     </NavItemWrap>
   )
 }
 
 const AppMenu: React.FunctionComponent<AppMenuProps> = () => {
+  const { t } = useTranslation()
+
   const genNavList = (navItem: NavItemType) => {
     // no children
     if (!navItem.hasChildren && navItem?.route) {
       return (
         <Menu.Item key={navItem.name}>
           <NavLink to={navItem.route} activeClassName="selected">
-            {navItem.name}
+            {t(`${navItem.name}`)}
           </NavLink>
         </Menu.Item>
       )
@@ -118,7 +125,7 @@ const AppMenu: React.FunctionComponent<AppMenuProps> = () => {
           className="sub-menu"
           title={
             <Row style={{ alignItems: 'center' }}>
-              <span>{navItem.name}</span>
+              <span>{t(`${navItem.name}`)}</span>
               <DownOutlined className="arrow-icon" style={{ fontSize: '8px', paddingTop: '-2px' }} />
             </Row>
           }
@@ -143,7 +150,7 @@ const AppMenu: React.FunctionComponent<AppMenuProps> = () => {
         })
 
         return (
-          <Menu.ItemGroup key={index} title={group.groupName}>
+          <Menu.ItemGroup key={index} title={t(`${group.groupName}`)}>
             {groupItemDom}
             {groupList.length - 1 !== index ? (
               <RowBetween>
@@ -159,7 +166,7 @@ const AppMenu: React.FunctionComponent<AppMenuProps> = () => {
           className="sub-menu"
           title={
             <Row style={{ alignItems: 'center' }}>
-              <span>{navItem.name}</span>
+              <span>{t(`${navItem.name}`)}</span>
               <DownOutlined className="arrow-icon" style={{ fontSize: '8px', paddingTop: '-2px' }} />
             </Row>
           }

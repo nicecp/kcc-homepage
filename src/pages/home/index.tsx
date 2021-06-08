@@ -71,20 +71,19 @@ const ImageWrap = styled(Row)`
 
 const Characteristics = [
   {
-    description: 'Fully compatible with Ethereum and ERC-20 smart contracts, with extremely low migration costs',
+    description: 'KCC INTRODUCE 1',
     image: require('../../assets/images/home/c1.png').default,
   },
   {
-    description:
-      'KuCoin Token (KCS) will serve as the only core fuel and native token for KCC and can be used in scenarios such as gas fee payment',
+    description: 'KCC INTRODUCE 2',
     image: require('../../assets/images/home/c2.png').default,
   },
   {
-    description: 'A block every 3 seconds results in faster transaction confirmation and higher chain performance',
+    description: 'KCC INTRODUCE 3',
     image: require('../../assets/images/home/c3.png').default,
   },
   {
-    description: 'Proof of Staked Authority (PoSA) consensus algorithm, high efficiency, security and stability',
+    description: 'KCC INTRODUCE 4',
     image: require('../../assets/images/home/c4.png').default,
   },
 ]
@@ -162,11 +161,10 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
           status: 'subscribed',
         },
       })
-      console.log(res)
-      if (res.data.status === 400 && res.data?.detail) {
-        message.warning(res.data.detail)
+      if (res.data.status === 400) {
+        message.warning(t(`Subscription failed`))
       } else {
-        message.success(t(`Subscription Success`))
+        message.success(t(`Thank you for subscribing`))
       }
 
       setEmail('')
@@ -183,11 +181,9 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
       {/* banner */}
       <BannerWrap className="home-banner-container">
         <BannerContentWrap>
-          <BannerTitle>{t('Facilitate the flow of value around the world')}</BannerTitle>
+          <BannerTitle>{t('Mission')}</BannerTitle>
           <BannerDescription>
-            {t(
-              'KuChain provides efficient and low-cost trust value exchange and connection services for decentralized applications.'
-            )}
+            {t('To accelerate the flow of value around the world without boundaries')}
           </BannerDescription>
           <Button type="primary" style={{ marginTop: '24px', width: '145px', height: '36px' }}>
             {t(`Get Start Now`)}
@@ -206,11 +202,10 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
           <ImageWrap>
             <img src={require('../../assets/images/home/why-bg.png').default} style={{ width: '80%' }} />
           </ImageWrap>
-          <ParagraphText style={{ width: '480px' }}>
-            {t(
-              '1.Fully compatible with Ethereum and ERC-20 smart contracts, with extremely low migration costs KuCoin 2. Token (KCS) will serve as the only core fuel and native token for KCC and can be used in scenarios such as gas fee payment. 3.A block every 3 seconds results in faster transaction confirmation and higher chain performance'
-            )}
-          </ParagraphText>
+          <Column>
+            <ParagraphText style={{ width: '480px' }}>{t(`KCC First Introduction`)}</ParagraphText>
+            <ParagraphText style={{ width: '480px' }}>{t(`KCC Second Introduction`)}</ParagraphText>
+          </Column>
         </RowBetween>
         <DivideLine style={{ marginTop: '80px', opacity: 0.24 }} />
       </BaseWrap>
@@ -225,7 +220,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
       {/* MileStone */}
       <BaseWrap style={{ padding: '88px 0 65px 0' }}>
         <ColumnCenter>
-          <TitleText>{t('MileStone')}</TitleText>
+          <TitleText>{t('Our Milestones')}</TitleText>
           <CenterRow gap="8px" justify="flex-start" style={{ marginTop: '44px', paddingLeft: '3px' }}>
             <span>MileStone</span>
           </CenterRow>
@@ -246,12 +241,8 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
       {/* Join the KCC Community */}
       <BaseWrap style={{ padding: '0px 0 65px 0' }}>
         <ColumnCenter>
-          <TitleText>{t('Join the KCC Community')}</TitleText>
-          <BaseSubText>
-            {t(
-              'KuChain provides efficient and low-cost trust value exchange and connection services for decentralized applications.'
-            )}
-          </BaseSubText>
+          <TitleText>{t('Join The KCC Community')}</TitleText>
+          <BaseSubText>{t('KCC  Community Title')}</BaseSubText>
           <RowBetween style={{ marginTop: '44px' }}>{ContactListComponent}</RowBetween>
         </ColumnCenter>
       </BaseWrap>
@@ -268,7 +259,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               style={{ border: 'none', backgroundColor: 'rgba(1,8,30,0.04)' }}
-              placeholder={t('Please input your Email address...')}
+              placeholder={t('Please input your email address')}
             />
             <Button type="primary" style={{ marginLeft: '20px' }} onClick={subscribe} disabled={disable}>
               <Subscribe>{t('Subscribe')}</Subscribe>

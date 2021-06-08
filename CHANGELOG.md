@@ -1,4 +1,4 @@
-## 0.1.2 (2021-06-07)
+## 0.1.3 (2021-06-08)
 
 
 ### Bug Fixes
@@ -15,6 +15,9 @@
 * **home:** basic components & layouts ([2377aa5](https://github.com/kucoin-community-chain/kcc-homepage/commit/2377aa5f1ab5d541067cbe0d27118dd86879fdee))
 * **homepage:** homepage ui completed ([4e0ca5a](https://github.com/kucoin-community-chain/kcc-homepage/commit/4e0ca5ac11e24572d3497442a40247610bce5abe))
 * **i18n:** completed i18n ([b6a7a18](https://github.com/kucoin-community-chain/kcc-homepage/commit/b6a7a18191c5590228972727a72e9079447445e1))
+* **i18n:** grants & home  i18n completed ([2c90ca4](https://github.com/kucoin-community-chain/kcc-homepage/commit/2c90ca477bb96d2ef5bd72886df8b93c98f86894))
+* **link:** update navbar & footer link ([0a3b8f2](https://github.com/kucoin-community-chain/kcc-homepage/commit/0a3b8f28f2b7453b416fe0d6e1b528998d7277fd))
+* **subsribe:** mail subscribe completed ([a646807](https://github.com/kucoin-community-chain/kcc-homepage/commit/a646807531a602067ede28491aadba37dc9a330d))
 
 
 

@@ -2,13 +2,19 @@ import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import store from '../state'
 
+// loaded language
+const LanguageList = ['zh-CN', 'en']
+
 // load language templates
 const templates = require.context('../locales/', true, /\.json$/)
 let lngTemplates: { [key: string]: { translation: string } } = {}
 templates.keys().forEach((lng: string) => {
   const lngName = lng.slice(2, lng.lastIndexOf('.'))
-  lngTemplates[lngName] = {
-    translation: templates(lng),
+  if (LanguageList.includes(lngName)) {
+    console.log(`${lngName} loaded`)
+    lngTemplates[lngName] = {
+      translation: templates(lng),
+    }
   }
 })
 

@@ -35,7 +35,7 @@ export const FOOTER_LIST = [
         navRoute: KCC.TEST_EXPLORER,
       },
       {
-        navText: 'Testnet Faucet',
+        navText: 'Testnet faucet',
         navRoute: KCC.FAUCET,
       },
     ],
