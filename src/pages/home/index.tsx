@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
-import { Button, Input, message } from 'antd'
+import { Button, Form, Input, message } from 'antd'
 import axios from 'axios'
 import { RightOutlined } from '@ant-design/icons'
 
@@ -115,6 +115,10 @@ const PartnerItemWrap = styled(CenterRow)`
   background: #f2f4f7;
   border-radius: 12px;
 `
+
+const Subscribe = styled.span`
+  font-family: URWDIN-Regular, URWDIN;
+`
 const HomePage: React.FunctionComponent<HomePageProps> = () => {
   const CharacteristicsComponent = Characteristics.map((item, index) => {
     return (
@@ -138,18 +142,40 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
 
   const { t } = useTranslation()
 
-  const test = async () => {
-    /*  const res = await axios({
-      url: 'https://qq.us6.list-manage.com/subscribe/post?u=f799a2a519200ad9233ddf0e5&id=ed053649d8&c=jQuery1900007711740440716763_1622803834036&EMAIL=788999999%40qq.com&b_f799a2a519200ad9233ddf0e5_ed053649d8=&subscribe=Subscribe&_=1622803834037',
-      data: {},
-    }) */
+  const [email, setEmail] = React.useState<string>('')
+  const [disable, setDisable] = React.useState<boolean>(false)
 
-    const res = await axios({
-      url: 'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@ryan-corp-2020',
-      data: {},
-    })
+  const subscribe = async () => {
+    const emailReg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/
 
-    console.log(res)
+    if (!emailReg.test(email)) {
+      message.error(t(`Please provide a valid email address.`))
+      return false
+    }
+    setDisable(true)
+    try {
+      const res = await axios({
+        method: 'post',
+        url: KCC.MAIL_SUBSCRIBE_PROXY,
+        data: {
+          email_address: email,
+          status: 'subscribed',
+        },
+      })
+      console.log(res)
+      if (res.data.status === 400 && res.data?.detail) {
+        message.warning(res.data.detail)
+      } else {
+        message.success(t(`Subscription Success`))
+      }
+
+      setEmail('')
+    } catch (e) {
+      console.log(e?.response)
+      message.error(t(`${e?.response?.data?.detail}`))
+    } finally {
+      setDisable(false)
+    }
   }
 
   return (
@@ -239,11 +265,13 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
           <MailSubText>{t('We’ll send you updates about Matic Network')}</MailSubText>
           <Row style={{ width: '400px', marginTop: '16px' }}>
             <Input
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               style={{ border: 'none', backgroundColor: 'rgba(1,8,30,0.04)' }}
               placeholder={t('Please input your Email address...')}
-            ></Input>
-            <Button type="primary" style={{ marginLeft: '20px' }} onClick={test}>
-              {t('Subscribe')}
+            />
+            <Button type="primary" style={{ marginLeft: '20px' }} onClick={subscribe} disabled={disable}>
+              <Subscribe>{t('Subscribe')}</Subscribe>
             </Button>
           </Row>
         </ColumnCenter>
