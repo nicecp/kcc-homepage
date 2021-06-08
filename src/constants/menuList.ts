@@ -31,26 +31,26 @@ export const MENU_LIST = [
     hasChildren: true,
     childrens: [
       {
-        title: 'Documentation',
+        title: 'Developer Docs',
         subTitle: 'Start building on KuCoin Community Chain',
         route: KCC.DOCS_URL,
         icon: require('../assets/Icons/document.png').default,
       },
       {
         title: 'Github',
-        subTitle: 'Visit our github community',
+        subTitle: 'Visit our Github community',
         route: KCC.GITHUB_URL,
         icon: require('../assets/Icons/github.png').default,
       },
       {
         title: 'Testnet Explorer',
-        subTitle: 'View information on the KCC public chain (testnet)',
+        subTitle: 'View information on the KCC public chain（testnet）',
         route: KCC.TEST_EXPLORER,
         icon: require('../assets/Icons/explorer.png').default,
       },
       {
         title: 'Testnet Faucet',
-        subTitle: 'Get KCC testnet Tokens',
+        subTitle: 'Get KCC testnet tokens',
         route: KCC.FAUCET,
         icon: require('../assets/Icons/faucet.png').default,
       },
@@ -72,7 +72,7 @@ export const MENU_LIST = [
           },
           {
             title: 'Defi Box',
-            subTitle: 'Coming soon...',
+            subTitle: 'Coming Soon...',
             route: '',
             icon: require('../assets/Icons/explorer.png').default,
           },
@@ -89,13 +89,13 @@ export const MENU_LIST = [
           },
           {
             title: 'ImToken',
-            subTitle: 'Visit and link to Imtoken',
+            subTitle: 'Visit and link to ImToken',
             route: 'https://token.im/',
             icon: require('../assets/Icons/imtoken.png').default,
           },
           {
-            title: 'More wallets',
-            subTitle: 'Coming soon...',
+            title: 'More Wallet',
+            subTitle: 'Coming Soon...',
             route: '',
             icon: require('../assets/Icons/wallet.png').default,
           },
@@ -120,7 +120,7 @@ export const MENU_LIST = [
     childrens: [
       {
         title: 'Activites',
-        subTitle: 'View the exciting activites information includes hackathons,meetups,and more',
+        subTitle: 'View the exciting activites information, Includes hackathons,meetups,and more',
         route: '/community/activity',
         icon: require('../assets/Icons/activity.png').default,
       },
