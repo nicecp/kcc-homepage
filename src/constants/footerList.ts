@@ -7,7 +7,7 @@ export const FOOTER_LIST = [
     children: [
       {
         navText: 'Announcement',
-        navRoute: '',
+        navRoute: KCC.MEDIA_URL,
       },
       {
         navText: 'Proof of Assets',
@@ -24,11 +24,11 @@ export const FOOTER_LIST = [
     children: [
       {
         navText: 'Docs',
-        navRoute: '',
+        navRoute: KCC.DOCS_URL,
       },
       {
         navText: 'Github',
-        navRoute: '',
+        navRoute: KCC.GITHUB_URL,
       },
       {
         navText: 'Testnet Explorer',
@@ -45,16 +45,16 @@ export const FOOTER_LIST = [
     children: [
       {
         navText: 'Technical Support',
-        navRoute: '',
+        navRoute: KCC.DISCORD_URL,
       },
       {
         navText: 'FAQ',
-        navRoute: '',
+        navRoute: KCC.DOCS_URL,
       },
-      {
+      /* {
         navText: 'Media kit',
-        navRoute: '',
-      },
+        navRoute: KCC.DOCS_URL,
+      }, */
     ],
   },
 ]

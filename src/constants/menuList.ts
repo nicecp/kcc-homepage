@@ -33,19 +33,19 @@ export const MENU_LIST = [
       {
         title: 'Documentation',
         subTitle: 'Start building on KuCoin Community Chain',
-        route: '/developers/docs',
+        route: KCC.DOCS_URL,
         icon: require('../assets/Icons/document.png').default,
       },
       {
         title: 'Github',
         subTitle: 'Visit our github community',
-        route: '/developers/github',
+        route: KCC.GITHUB_URL,
         icon: require('../assets/Icons/github.png').default,
       },
       {
         title: 'Testnet Explorer',
         subTitle: 'View information on the KCC public chain (testnet)',
-        route: '/developers/docs',
+        route: KCC.TEST_EXPLORER,
         icon: require('../assets/Icons/explorer.png').default,
       },
       {
@@ -67,7 +67,7 @@ export const MENU_LIST = [
           {
             title: 'Submit a Dapp',
             subTitle: 'Submit your dapp to the community',
-            route: '/ecosystem/dapp/submit',
+            route: KCC.DAPP_URL,
             icon: require('../assets/Icons/submit.png').default,
           },
           {
@@ -84,13 +84,13 @@ export const MENU_LIST = [
           {
             title: 'Metamask',
             subTitle: 'Visit and link to metamask',
-            route: '',
+            route: 'https://metamask.io',
             icon: require('../assets/Icons/metamask.png').default,
           },
           {
             title: 'ImToken',
             subTitle: 'Visit and link to Imtoken',
-            route: '',
+            route: 'https://token.im/',
             icon: require('../assets/Icons/imtoken.png').default,
           },
           {
@@ -107,7 +107,7 @@ export const MENU_LIST = [
           {
             title: 'Explorer',
             subTitle: 'View information on the KCC public chain',
-            route: '',
+            route: KCC.EXPLORER,
             icon: require('../assets/Icons/explorer.png').default,
           },
         ],
