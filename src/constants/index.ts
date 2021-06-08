@@ -6,6 +6,8 @@ export const KCC = {
   FAUCET: 'https://faucet-testnet.kcc.network/',
   DOCS_URL: 'https://docs.kcc.network/#/',
   MEDIA_API: 'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@ryan-corp-2020',
+  // MAIL_SUBSCRIBE_PROXY: 'http://127.0.0.1/maillist/subscribe',
+  MAIL_SUBSCRIBE_PROXY: 'https://mailsubscribe.kcc.io/mailchimp-subscribe',
   CONTACT_LIST: [
     {
       app: 'wechat',
