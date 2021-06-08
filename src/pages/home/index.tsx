@@ -176,6 +176,10 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
     }
   }
 
+  const navToDocs = () => {
+    window.open(KCC.DOCS_URL, '_blank')
+  }
+
   return (
     <HomePageWrap>
       {/* banner */}
@@ -185,9 +189,11 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
           <BannerDescription>
             {t('To accelerate the flow of value around the world without boundaries')}
           </BannerDescription>
-          <Button type="primary" style={{ marginTop: '24px', width: '145px', height: '36px' }}>
-            {t(`Get Start Now`)}
-            <RightOutlined style={{ fontSize: '12px' }} />
+          <Button type="primary" style={{ marginTop: '24px', width: '145px', height: '36px' }} onClick={navToDocs}>
+            <CenterRow justify="center">
+              {t(`Get Start Now`)}
+              <RightOutlined style={{ fontSize: '10px', marginLeft: '10px' }} />
+            </CenterRow>
           </Button>
         </BannerContentWrap>
       </BannerWrap>
