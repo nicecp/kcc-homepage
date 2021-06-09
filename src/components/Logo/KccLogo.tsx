@@ -10,6 +10,8 @@ export enum PictureType {
 
 const Image = styled.img`
   cursor: pointer;
+  position: relative;
+  z-index: 2;
 `
 interface KccLogoProps {
   abbr?: boolean

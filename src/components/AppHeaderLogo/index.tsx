@@ -7,6 +7,8 @@ import './index.less'
 export interface AppHeaderLogoProps {}
 
 const AppHeaderLogoWrap = styled.div`
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;

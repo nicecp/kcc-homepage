@@ -9,8 +9,9 @@ module.exports = {
           lessOptions: {
             // config less variable here
             modifyVars: {
-              '@primary-color': '#00a484',
+              '@primary-color': '#49FFA1',
               '@link-color': '#0fcd8c',
+              '@logo-color': '#39E1A4',
             },
             javascriptEnabled: true,
           },

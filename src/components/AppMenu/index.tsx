@@ -7,16 +7,18 @@ import { useTranslation } from 'react-i18next'
 
 import Row from '../Row/index'
 import Column from '../Column'
-import { DivideLine } from '../Common'
 import { RowBetween } from '../Row/index'
 import { Menu } from 'antd'
 
 import './index.less'
+import { theme } from '../../constants/theme'
 
 export interface AppMenuProps {}
 
 const MenuWrap = styled.div`
   margin-left: 40px;
+  position: relative;
+  z-index: 2;
 `
 
 const { SubMenu } = Menu
@@ -24,7 +26,7 @@ const { SubMenu } = Menu
 const NavTitle = styled.span`
   font-family: URWDIN-Medium;
   font-size: 16px;
-  color: #01081e;
+  color: ${() => theme.colors.primary};
   letter-spacing: 0;
   text-align: center;
   padding: 0;
@@ -35,7 +37,7 @@ const NavSubTitle = styled.div`
   opacity: 0.6;
   font-family: URWDIN-Medium;
   font-size: 12px;
-  color: #01081e;
+  color: ${() => theme.colors.primary};
   letter-spacing: 0;
   text-align: center;
   padding: 0;
@@ -44,6 +46,7 @@ const NavSubTitle = styled.div`
   word-wrap: wrap;
   white-space: wrap !important;
   text-align: left;import { useTranslation } from 'react-i18next';
+import { theme } from '../../constants/theme';
 
 `
 
@@ -52,11 +55,11 @@ const NavItemWrap = styled.div`
   flex-flow: row nowrap;
   justify-content: flex-start;
   align-items: flex-start;
-  padding: 14px 0px;
 `
 
 const NavIcon = styled.img`
-  height: 36px;
+  width: 32px;
+  height: auto;
 `
 
 const TitleWrap = styled(Column)`
@@ -100,8 +103,8 @@ const AppMenu: React.FunctionComponent<AppMenuProps> = () => {
     if (!navItem.hasChildren && navItem?.route) {
       return (
         <Menu.Item key={navItem.name}>
-          <NavLink to={navItem.route} activeClassName="selected">
-            {t(`${navItem.name}`)}
+          <NavLink to={navItem.route} activeClassName="selected" style={{ color: theme.colors.primary }}>
+            <NavTitle>{t(`${navItem.name}`)}</NavTitle>
           </NavLink>
         </Menu.Item>
       )
@@ -113,7 +116,7 @@ const AppMenu: React.FunctionComponent<AppMenuProps> = () => {
 
       const lists = subMenuList?.map((item) => {
         return (
-          <Menu.Item key={item.title} style={{ height: 'auto', lineHeight: '20px' }}>
+          <Menu.Item key={item.title} style={{ height: 'auto', lineHeight: '20px', color: theme.colors.primary }}>
             <NavItem {...item} />
           </Menu.Item>
         )
@@ -125,8 +128,10 @@ const AppMenu: React.FunctionComponent<AppMenuProps> = () => {
           className="sub-menu"
           title={
             <Row style={{ alignItems: 'center' }}>
-              <span>{t(`${navItem.name}`)}</span>
-              <DownOutlined className="arrow-icon" style={{ fontSize: '8px', paddingTop: '-2px' }} />
+              <NavTitle>
+                {t(`${navItem.name}`)}{' '}
+                <DownOutlined className="arrow-icon" style={{ fontSize: '10px', paddingTop: '-6px' }} />
+              </NavTitle>
             </Row>
           }
         >
@@ -150,12 +155,10 @@ const AppMenu: React.FunctionComponent<AppMenuProps> = () => {
         })
 
         return (
-          <Menu.ItemGroup key={index} title={t(`${group.groupName}`)}>
+          <Menu.ItemGroup key={index} title={<NavTitle>{t(`${group.groupName}`)}</NavTitle>}>
             {groupItemDom}
             {groupList.length - 1 !== index ? (
-              <RowBetween>
-                <DivideLine style={{ background: ' #F1F4F7', margin: '12px' }} />
-              </RowBetween>
+              <RowBetween>{/*    <DivideLine style={{ background: ' #F1F4F7', margin: '12px' }} /> */}</RowBetween>
             ) : null}
           </Menu.ItemGroup>
         )
@@ -166,8 +169,10 @@ const AppMenu: React.FunctionComponent<AppMenuProps> = () => {
           className="sub-menu"
           title={
             <Row style={{ alignItems: 'center' }}>
-              <span>{t(`${navItem.name}`)}</span>
-              <DownOutlined className="arrow-icon" style={{ fontSize: '8px', paddingTop: '-2px' }} />
+              <NavTitle>
+                {t(`${navItem.name}`)}{' '}
+                <DownOutlined className="arrow-icon" style={{ fontSize: '10px', paddingTop: '-10px' }} />
+              </NavTitle>
             </Row>
           }
         >
@@ -185,7 +190,11 @@ const AppMenu: React.FunctionComponent<AppMenuProps> = () => {
 
   return (
     <MenuWrap>
-      <Menu selectedKeys={[]} mode="horizontal" style={{ border: 'none' }}>
+      <Menu
+        selectedKeys={[]}
+        mode="horizontal"
+        style={{ border: 'none', background: 'transparent', color: theme.colors.primary }}
+      >
         {MenuListDom}
       </Menu>
     </MenuWrap>

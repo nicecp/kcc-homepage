@@ -12,28 +12,42 @@ import { KCC } from '../../constants'
 
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import './index.less'
+import { theme } from '../../constants/theme'
 
 export interface NoticeBarProps {}
+
+const BG = require('../../assets/images/home/why-top-cover.png').default
 
 const NoticeBarWrap = styled(AutoRow)`
   flex-flow: row nowrap;
   height: 44px;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid #f1f4f7;
+  position: relative;
+  z-index: 2;
 `
+
+const NoticeBgWrap = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.36);
+  opacity: 0.08;
+`
+
 const Text = styled.span`
   font-family: URWDIN-Regular;
   font-size: 12px;
-  color: rgba(1, 8, 30, 0.87);
+  color: #fff !important;
   margin-left: 8px;
   cursor: pointer;
   max-width: 750px;
   text-overflow: ellipsis;
   overflow: hidden;
+  opacity: 1;
   white-space: nowrap;
   &:hover {
-    background: #fff;
     text-decoration: underline;
   }
 `
@@ -41,7 +55,7 @@ const Text = styled.span`
 const Date = styled.span`
   font-family: URWDIN-Regular;
   font-size: 12px;
-  color: rgba(1, 8, 30, 0.87);
+  color: #fff;
   margin-left: 8px;
 `
 
@@ -106,12 +120,15 @@ const NoticeBar: React.FunctionComponent<NoticeBarProps> = () => {
     speed: 1000,
     slidesToScroll: 1,
     vertical: true,
+    nextArrow: <span></span>,
+    prevArrow: <span></span>,
     verticalSwiping: true,
   }
 
   return (
     <NoticeBarWrap>
-      <SoundFilled />
+      <NoticeBgWrap />
+      <SoundFilled style={{ color: theme.colors.primary }} />
       <div style={{ maxWidth: '940px' }}>
         <Slider {...settings}>{List}</Slider>
       </div>

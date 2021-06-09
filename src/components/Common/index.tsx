@@ -1,21 +1,22 @@
 import styled from 'styled-components'
+import { theme } from '../../constants/theme'
 
 export const TitleText = styled.span`
   font-family: URWDIN-Demi;
   font-size: 48px;
-  color: #01081e;
+  color: ${theme.colors.primary};
   text-align: center;
 `
 export const ParagraphText = styled.div`
-  opacity: 0.6;
-  font-family: URWDIN-Regular;
+  font-family: URWDIN-Regular, PingFangSC-Regular, PingFang SC;
   font-size: 20px;
-  color: #01081e;
+  color: #ffffff;
   line-height: 32px;
+  font-weight: 400;
 `
 
 export const DivideLine = styled.div`
   width: 100%;
   height: 1px;
-  background: #01081e;
+  background: ${theme.colors.primary};
 `

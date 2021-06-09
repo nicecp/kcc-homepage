@@ -16,19 +16,34 @@ import { ColumnCenter } from '../../components/Column/index'
 import { KCC } from '../../constants/index'
 import ContactCard from '../../components/ContactCard/index'
 import { CenterRow } from '../../components/Row/index'
-
-import './index.less'
+import { theme } from '../../constants/theme'
 
 export interface HomePageProps {}
 
-export const HomePageWrap = styled.div``
+const BannerBgImage = require('../../assets/images/home/banner-bg@2x.png').default
+const BannerBgHover = require('../../assets/images/home/home-top-cover@2x.png').default
+
+export const HomePageWrap = styled.div`
+  position: relative;
+  background: #000;
+  height: auto;
+  z-index: 1;
+`
+
+const BannerCoverWrap = styled.img`
+  width: 100%;
+  position: absolute;
+`
 
 export const BannerWrap = styled.div`
-  height: 380px;
+  padding-top: 80px;
+  height: 460px;
   display: flex;
   flex-flow: row no-wrap;
   justify-content: center;
   align-items: center;
+  background: url(${BannerBgImage}) top center no-repeat;
+  background-size: auto 100%;
 `
 export const BannerContentWrap = styled.div`
   display: flex;
@@ -42,14 +57,14 @@ export const BannerTitle = styled.span`
   font-size: 60px;
   font-family: URWDIN-Bold, PingFangSC-Medium, PingFang SC;
   font-weight: 500;
-  color: #01081e;
+  color: ${theme.colors.primary};
   line-height: 64px;
 `
 export const BannerDescription = styled.span`
   opacity: 0.6;
   font-family: URWDIN-Regular;
   font-size: 20px;
-  color: #01081e;
+  color: ${theme.colors.primary};
   line-height: 32px;
   margin-top: 24px;
   max-width: 640px;
@@ -61,9 +76,8 @@ export const BaseWrap = styled(Column)`
 `
 
 const ImageWrap = styled(Row)`
-  width: 380px;
+  width: 360px;
   height: 238px;
-  background: #b2ffee;
   border-radius: 24px;
   align-items: center;
   justify-content: center;
@@ -94,30 +108,94 @@ export const MailSubText = styled.span`
   font-size: 16px;
   font-family: URWDIN-Regular, URWDIN;
   font-weight: 400;
-  color: rgba(1, 8, 30, 0.38);
+  color: #000;
   line-height: 24px;
 `
 
 const BaseSubText = styled.span`
-  width: '600px';
+  width: 600px;
   height: 24px;
   font-size: 16px;
   font-family: URWDIN-Regular, URWDIN;
   font-weight: 400;
-  color: rgba(1, 8, 30, 0.38);
+  color: #fff;
   line-height: 24px;
   text-align: left;
 `
-const PartnerItemWrap = styled(CenterRow)`
+
+const PartnerListWrap = styled.div`
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  column-gap: 16px;
+  row-gap: 16px;
+  margin: auto;
+`
+const PartnerItemWrap = styled.div`
+  display: flex;
   height: 140px;
   width: 140px;
-  background: #f2f4f7;
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
+  margin: auto;
 `
 
 const Subscribe = styled.span`
   font-family: URWDIN-Regular, URWDIN;
 `
+
+const ButtonText = styled.div`
+  color: #000;
+`
+
+const IntroduceCoverImage = require('../../assets/images/home/why-top-cover.png').default
+
+const IntroduceCoverWrap = styled.div`
+  position: relative;
+`
+
+const IntroduceCoverImageWrap = styled.img`
+  position: absolute;
+  top: 0;
+  width: 100%;
+  heigth: 50px !important;
+`
+
+const IntroduceCover1 = styled.img`
+  position: absolute;
+  width: 643px;
+  height: auto;
+  right: 0;
+  top: 0px;
+  z-index: 1;
+`
+
+const IntroduceCover2 = styled.img`
+  position: absolute;
+  width: 396px;
+  height: auto;
+  bottom: 0;
+  left: 0px;
+  z-index: 1;
+`
+
+const JoinButtonCover = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0px;
+  z-index: 0;
+  background: linear-gradient(0deg, #277453 0%, rgba(97, 223, 101, 0) 100%);
+`
+
+const MailWrap = styled(BaseWrap)`
+  padding: 75px 0 100px 0;
+  background: ${theme.colors.primary};
+  position: relative;
+  top: -43px;
+`
+
 const HomePage: React.FunctionComponent<HomePageProps> = () => {
   const CharacteristicsComponent = Characteristics.map((item, index) => {
     return (
@@ -143,6 +221,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
 
   const [email, setEmail] = React.useState<string>('')
   const [disable, setDisable] = React.useState<boolean>(false)
+  const [subscribed, setSubscribed] = React.useState<boolean>(false)
 
   const subscribe = async () => {
     const emailReg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/
@@ -165,6 +244,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
         message.warning(t(`Subscription failed`))
       } else {
         message.success(t(`Thank you for subscribing`))
+        setSubscribed(() => true)
       }
 
       setEmail('')
@@ -181,103 +261,133 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
   }
 
   return (
-    <HomePageWrap>
-      {/* banner */}
-      <BannerWrap className="home-banner-container">
-        <BannerContentWrap>
-          <BannerTitle>{t('Mission')}</BannerTitle>
-          <BannerDescription>
-            {t('To accelerate the flow of value around the world without boundaries')}
-          </BannerDescription>
-          <Button type="primary" style={{ marginTop: '24px', width: '145px', height: '36px' }} onClick={navToDocs}>
-            <CenterRow justify="center">
-              {t(`Get Start Now`)}
-              <RightOutlined style={{ fontSize: '10px', marginLeft: '10px' }} />
-            </CenterRow>
-          </Button>
-        </BannerContentWrap>
-      </BannerWrap>
+    <>
+      <HomePageWrap>
+        {/* banner */}
+        <BannerCoverWrap src={BannerBgHover} />
+        <BannerWrap className="home-banner-container">
+          <BannerContentWrap>
+            <BannerTitle>{t('Mission')}</BannerTitle>
+            <BannerDescription>
+              {t('To accelerate the flow of value around the world without boundaries')}
+            </BannerDescription>
 
-      {/* notice bar */}
-      <NoticeBar />
+            <ButtonText>
+              <Button type="primary" style={{ marginTop: '24px', width: '145px', height: '36px' }} onClick={navToDocs}>
+                <ButtonText>
+                  {t(`Get Start Now`)}
+                  <RightOutlined style={{ fontSize: '10px', marginLeft: '10px' }} />
+                </ButtonText>
+              </Button>
+            </ButtonText>
+          </BannerContentWrap>
+        </BannerWrap>
+      </HomePageWrap>
 
       {/* why */}
-      <BaseWrap style={{ paddingTop: '80px' }}>
-        <TitleText>{t('Why KuCoin Community Chain')}</TitleText>
-        <RowBetween style={{ alignItems: 'center', paddingTop: '68px' }}>
-          <ImageWrap>
-            <img src={require('../../assets/images/home/why-bg.png').default} style={{ width: '80%' }} />
-          </ImageWrap>
-          <Column>
-            <ParagraphText style={{ width: '480px' }}>{t(`KCC First Introduction`)}</ParagraphText>
-            <ParagraphText style={{ width: '480px' }}>{t(`KCC Second Introduction`)}</ParagraphText>
-          </Column>
-        </RowBetween>
-        <DivideLine style={{ marginTop: '80px', opacity: 0.24 }} />
-      </BaseWrap>
+      {/* notice bar */}
+      <HomePageWrap>
+        <IntroduceCoverWrap>
+          <NoticeBar />
+          <IntroduceCoverImageWrap src={IntroduceCoverImage} height="400px" width="50%" />
+          <BaseWrap style={{ padding: '80px 0', position: 'relative', zIndex: 1 }}>
+            <RowBetween style={{ alignItems: 'center', paddingTop: '68px' }}>
+              <ImageWrap>
+                <img src={require('../../assets/test.png').default} style={{ width: '80%' }} />
+              </ImageWrap>
+              <Column style={{ marginLeft: '50px' }}>
+                <TitleText style={{ width: '660px', textAlign: 'left' }}>{t('Why KuCoin Community Chain')}</TitleText>
+                <ParagraphText style={{ width: 'auto' }}>{t(`KCC First Introduction`)}</ParagraphText>
+                <ParagraphText style={{ width: 'auto' }}>{t(`KCC Second Introduction`)}</ParagraphText>
+              </Column>
+            </RowBetween>
+            {/*  <DivideLine style={{ marginTop: '80px', opacity: 0.24 }} /> */}
+          </BaseWrap>
+        </IntroduceCoverWrap>
+      </HomePageWrap>
 
       {/* CharacteristicsComponent */}
-      <BaseWrap style={{ paddingTop: '88px' }}>
-        <TitleText>{t('Our Characteristics')}</TitleText>
-        <div style={{ paddingTop: '70px' }}>{CharacteristicsComponent}</div>
-        <DivideLine style={{ marginTop: '80px', opacity: 0.24 }} />
-      </BaseWrap>
+      <HomePageWrap>
+        <IntroduceCover1 src={require('../../assets/images/home/introduction-right-cover@2x.png').default} />
+        <BaseWrap style={{ paddingTop: '88px' }}>
+          <TitleText>{t('Our Characteristics')}</TitleText>
+          <div style={{ paddingTop: '70px' }}>{CharacteristicsComponent}</div>
+          <DivideLine style={{ marginTop: '80px' }} />
+        </BaseWrap>
 
-      {/* MileStone */}
-      <BaseWrap style={{ padding: '88px 0 65px 0' }}>
-        <ColumnCenter>
-          <TitleText>{t('Our Milestones')}</TitleText>
-          <CenterRow gap="8px" justify="flex-start" style={{ marginTop: '44px', paddingLeft: '3px' }}>
-            <span>MileStone</span>
-          </CenterRow>
-        </ColumnCenter>
-      </BaseWrap>
+        {/* MileStone */}
+        <BaseWrap style={{ padding: '88px 0 65px 0' }}>
+          <ColumnCenter>
+            <TitleText>{t('Our Milestones')}</TitleText>
+            <CenterRow gap="8px" justify="center" style={{ marginTop: '44px', paddingLeft: '3px' }}>
+              <ParagraphText>MileStone</ParagraphText>
+            </CenterRow>
+          </ColumnCenter>
+        </BaseWrap>
+        <IntroduceCover2 src={require('../../assets/images/home/introduce-cover-2.png').default} />
+      </HomePageWrap>
 
       {/* Partner */}
-      <BaseWrap style={{ padding: '0px 0 65px 0' }}>
-        <ColumnCenter>
-          <TitleText>{t('Partner')}</TitleText>
-          <CenterRow gap="8px" justify="flex-start" style={{ marginTop: '44px', paddingLeft: '3px' }}>
-            {PartnerListComponent}
-          </CenterRow>
-        </ColumnCenter>
-        <DivideLine style={{ marginTop: '80px', opacity: 0.24 }} />
-      </BaseWrap>
+      <HomePageWrap>
+        <BaseWrap style={{ padding: '0px 0 65px 0' }}>
+          <ColumnCenter>
+            <TitleText>{t('Partner')}</TitleText>
+            <PartnerListWrap>{PartnerListComponent}</PartnerListWrap>
+          </ColumnCenter>
+          <DivideLine style={{ marginTop: '80px', opacity: 0.24 }} />
+        </BaseWrap>
 
-      {/* Join the KCC Community */}
-      <BaseWrap style={{ padding: '0px 0 65px 0' }}>
-        <ColumnCenter>
-          <TitleText>{t('Join The KCC Community')}</TitleText>
-          <BaseSubText>
-            {t('KCC  Community Title')}
-            <br />
-            {t(`Join KCC Ttile`)}
-          </BaseSubText>
-          <RowBetween style={{ marginTop: '44px' }}>{ContactListComponent}</RowBetween>
-        </ColumnCenter>
-      </BaseWrap>
+        {/* Join the KCC Community */}
+        <BaseWrap style={{ padding: '0px 0 65px 0', position: 'relative', zIndex: 2 }}>
+          <ColumnCenter>
+            <TitleText>{t('Join The KCC Community')}</TitleText>
+            <BaseSubText>
+              {t('KCC  Community Title')}
+              <br />
+              {t(`Join KCC Ttile`)}
+            </BaseSubText>
+            <RowBetween style={{ marginTop: '54px' }}>{ContactListComponent}</RowBetween>
+          </ColumnCenter>
+        </BaseWrap>
+        <JoinButtonCover />
+      </HomePageWrap>
 
-      <DivideLine style={{ marginTop: '0px', opacity: 0.24 }} />
+      {/* <DivideLine style={{ marginTop: '0px', opacity: 0.24 }} /> */}
 
       {/* mail */}
-      <BaseWrap style={{ padding: '75px 0  100px 0' }}>
-        <ColumnCenter>
-          <TitleText>{t('Subscribe to our Mailing List')}</TitleText>
-          <MailSubText>{t('We’ll send you updates about KuCoin Community Chain')}</MailSubText>
-          <Row style={{ width: '400px', marginTop: '16px' }}>
-            <Input
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              style={{ border: 'none', backgroundColor: 'rgba(1,8,30,0.04)' }}
-              placeholder={t('Enter your email address')}
-            />
-            <Button type="primary" style={{ marginLeft: '20px' }} onClick={subscribe} disabled={disable}>
-              <Subscribe>{t('Subscribe')}</Subscribe>
-            </Button>
-          </Row>
-        </ColumnCenter>
-      </BaseWrap>
-    </HomePageWrap>
+      <HomePageWrap>
+        <MailWrap>
+          <ColumnCenter>
+            <TitleText style={{ color: '#000' }}>{t('Subscribe to our Mailing List')}</TitleText>
+            <MailSubText>{t('We’ll send you updates about KuCoin Community Chain')}</MailSubText>
+            {subscribed ? (
+              <Row style={{ width: 'auto', marginTop: '16px' }}>
+                <MailSubText style={{ fontSize: '24px', textAlign: 'center' }}>
+                  {t(`Thank you for subscribing`)}
+                </MailSubText>
+              </Row>
+            ) : (
+              <Row style={{ width: '400px', marginTop: '16px' }}>
+                <Input
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  style={{ border: 'none', backgroundColor: '#fff' }}
+                  placeholder={t('Enter your email address')}
+                />
+                <Button
+                  type="primary"
+                  style={{ marginLeft: '20px', background: '#000' }}
+                  onClick={subscribe}
+                  disabled={disable}
+                >
+                  <Subscribe>{t('Subscribe')}</Subscribe>
+                </Button>
+              </Row>
+            )}
+          </ColumnCenter>
+        </MailWrap>
+      </HomePageWrap>
+    </>
   )
 }
 
