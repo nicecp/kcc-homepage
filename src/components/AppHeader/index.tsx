@@ -13,6 +13,11 @@ const AppHeaderWrap = styled.div`
   align-items: center;
   height: 80px;
   width: 100%;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background: transparent;
 `
 
 const HeaderLeftWrap = styled.div`

@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 import Row, { RowBetween } from '../Row'
 import copy from 'copy-to-clipboard'
 import { message } from 'antd'
+import { theme } from '../../constants/theme'
 export interface ContactCardProps {
   icon: string
   app: string
@@ -20,6 +21,7 @@ const ContactCardWrap = styled(ColumnCenter)`
 const AppIcon = styled.img`
   width: 64px;
   height: 64px;
+  cursor: pointer;
 `
 
 const AppText = styled.div`
@@ -27,14 +29,15 @@ const AppText = styled.div`
   font-size: 14px;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
-  color: #000000;
+  color: #fff;
+  margin-top: 10px;
   line-height: 20px;
 `
 const AccountText = styled.span`
   font-size: 16px;
   font-family: PingFangSC-Medium, PingFang SC;
   font-weight: 500;
-  color: #000000;
+  color: ${theme.colors.primary};
   line-height: 22px;
 `
 const CopyIcon = styled.img`
@@ -58,13 +61,13 @@ const ContactCard: React.FunctionComponent<ContactCardProps> = (props) => {
         <AppIcon src={props.icon} />
         <AppText>{t(props.app)}</AppText>
       </ColumnCenter>
-      <Row style={{ justifyContent: 'center', alignItems: 'center', marginTop: '11px' }}>
+      {/* <Row style={{ justifyContent: 'center', alignItems: 'center', marginTop: '11px' }}>
         <AccountText>{props.account}</AccountText>
         <CopyIcon
           src={require('../../assets/images/home/copy.png').default}
           onClick={copyAccount.bind(null, props.account)}
         />
-      </Row>
+      </Row> */}
     </ContactCardWrap>
   )
 }

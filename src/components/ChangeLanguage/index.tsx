@@ -9,6 +9,9 @@ import { useDispatch } from 'react-redux'
 import { AppState, AppDispatch } from '../../state/index'
 import { changeTheme, changeLanguage } from '../../state/application/actions'
 import { useLanguage } from '../../state/application/hooks'
+import { theme } from '../../constants/theme'
+
+import './index.less'
 
 export interface ChangeLanguageProps {}
 
@@ -23,12 +26,12 @@ const Text = styled.div`
   font-size: 14px;
   font-family: URWDIN-Medium, URWDIN;
   font-weight: 500;
-  color: #666;
+  color: ${() => theme.colors.primary};
   line-height: 24px;
   margin: 8px;
   cursor: pointer;
   &:hover {
-    color: #000;
+    color: #fff;
   }
 `
 const Image = styled.img`
@@ -41,15 +44,20 @@ const LanguageButton = styled(Button)`
   height: 26px;
   line-height: none;
   padding: 0;
+  border-radius: 4px;
   font-size: 12px;
+  outline: none;
+  border: 1px solid ${() => theme.colors.primary};
+  background: transparent;
+  &:hvoer {
+    bacground: transparent !important;
+  }
 `
 
 const ChangeLanguage: React.FunctionComponent<ChangeLanguageProps> = () => {
   const { i18n } = useTranslation()
 
   const [show, setShow] = useState(false)
-
-  const ref = useRef<any>(null)
 
   let timer: any = null
 
@@ -95,7 +103,7 @@ const ChangeLanguage: React.FunctionComponent<ChangeLanguageProps> = () => {
   return (
     <MenuWrap onMouseEnter={showPop} onMouseLeave={hidePopover}>
       <Popover placement="bottom" content={selectOptions} visible={show}>
-        <LanguageButton>
+        <LanguageButton style={{ color: theme.colors.primary }}>
           {currentLanguage}
           <DownOutlined style={{ fontSize: '10px' }} />
         </LanguageButton>
