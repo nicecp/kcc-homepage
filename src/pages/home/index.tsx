@@ -61,10 +61,9 @@ export const BannerTitle = styled.span`
   line-height: 64px;
 `
 export const BannerDescription = styled.span`
-  opacity: 0.6;
   font-family: URWDIN-Regular;
   font-size: 20px;
-  color: ${theme.colors.primary};
+  color: #fff;
   line-height: 32px;
   margin-top: 24px;
   max-width: 640px;
@@ -108,7 +107,7 @@ export const MailSubText = styled.span`
   font-size: 16px;
   font-family: URWDIN-Regular, URWDIN;
   font-weight: 400;
-  color: #000;
+  color: rgba(255, 255, 255, 0.6);
   line-height: 24px;
 `
 
@@ -159,8 +158,11 @@ const Subscribe = styled.span`
   }
 `
 
-const ButtonText = styled.div`
+export const ButtonText = styled.div`
   color: #000;
+  .text {
+    color: #000;
+  }
   &:hover {
     .text {
       color: ${theme.colors.primary};

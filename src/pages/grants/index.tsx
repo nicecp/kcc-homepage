@@ -3,21 +3,58 @@ import React from 'react'
 import styled from 'styled-components'
 import { BannerContentWrap, BannerDescription, BannerTitle, BannerWrap, MailSubText } from '../home'
 import { useTranslation } from 'react-i18next'
-import { BaseWrap } from '../home/index'
-import Row, { RowBetween, CenterRow } from '../../components/Row/index'
+import { BaseWrap, ButtonText } from '../home/index'
+import Row, { CenterRow } from '../../components/Row/index'
 import { DivideLine, ParagraphText, TitleText } from '../../components/Common'
 import Column, { ColumnCenter } from '../../components/Column'
 import { AutoColumn } from '../../components/Column/index'
+import { theme } from '../../constants/theme'
 
 export interface GrantsPageProps {}
 
-const GrantsPageWrap = styled.div``
+const GrantsPageWrap = styled.div`
+  position: relative;
+  background: #000;
+  height: auto;
+  z-index: 1;
+`
+
+const CoverWrap = styled.div`
+  position: relative;
+  z-index: 0;
+`
+
+const CoverImgWrap = styled.div`
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  left: 0;
+  heigth: 100%;
+`
+
+const BannerBgImage = require('../../assets/images/grant/grant-banner-bg@2x.png').default
+
+export const GrantBannerWrap = styled.div`
+  width: 1200px;
+  margin: 0 auto;
+  padding-top: 80px;
+  height: 460px;
+  display: flex;
+  flex-flow: row no-wrap;
+  justify-content: center;
+  align-items: center;
+  background: url(${BannerBgImage}) top center no-repeat;
+  background-size: auto 100%;
+  z-index: 3;
+`
 
 const NumberText = styled.div`
-  height: 80px;
+  font-style: italic;
   font-size: 80px;
-  font-family: URWDIN-Light, URWDIN;
-  font-weight: 300;
+  font-family: URWDIN-Bold, URWDIN;
+  font-weight: normal;
+  color: #49ffa1;
+  line-height: 96px;
 `
 
 const SubTitle = styled.div`
@@ -25,8 +62,8 @@ const SubTitle = styled.div`
   font-size: 32px;
   font-family: URWDIN-Medium, URWDIN;
   font-weight: 500;
-  color: #01081e;
-  line-height: 38px;
+  color: ${theme.colors.primary};
+  line-height: 0px;
 `
 
 const ParagraphTitle = styled.div`
@@ -34,7 +71,7 @@ const ParagraphTitle = styled.div`
   font-size: 20px;
   font-family: URWDIN-Regular, URWDIN;
   font-weight: 400;
-  color: #01081e;
+  color: #fff;
   line-height: 32px;
 `
 const ParagraphIcon = styled.img`
@@ -42,7 +79,13 @@ const ParagraphIcon = styled.img`
   width: 30px;
 `
 const SmallText = styled.div`
-  font-size: 10px;
+  font-size: 16px;
+`
+
+const BottomCoverImage = styled.img`
+  display: absolute;
+  bottom: 0;
+  left: 0;
 `
 
 const GrantsPage: React.FunctionComponent<GrantsPageProps> = () => {
@@ -51,7 +94,7 @@ const GrantsPage: React.FunctionComponent<GrantsPageProps> = () => {
   return (
     <GrantsPageWrap>
       {/* banner */}
-      <BannerWrap className="home-banner-container">
+      <GrantBannerWrap className="grant-banner-container">
         <BannerContentWrap>
           <BannerTitle>{t('Grant Program')}</BannerTitle>
           <BannerDescription>
@@ -59,92 +102,103 @@ const GrantsPage: React.FunctionComponent<GrantsPageProps> = () => {
               'In support of our mission, the KCS Foundation grants program funds software development and research in the field of decentralized software protocols.'
             )}
           </BannerDescription>
-          <Button type="primary" style={{ marginTop: '24px', width: '145px', height: '36px' }}>
-            {t('Apply Now')}
-          </Button>
+          <ButtonText>
+            <Button type="primary" style={{ marginTop: '24px', width: '145px', height: '36px' }}>
+              <span className="text">{t('Apply Now')}</span>
+            </Button>
+          </ButtonText>
         </BannerContentWrap>
-      </BannerWrap>
+      </GrantBannerWrap>
 
       {/* content */}
 
-      <BaseWrap style={{ paddingTop: '120px' }}>
-        <CenterRow justify="space-between">
-          <Column>
-            <ParagraphText style={{ width: '480px' }}>{t('Grant Introduce 1')}</ParagraphText>
-            <ParagraphText style={{ width: '480px' }}>{t('Grant Type 1')}</ParagraphText>
-            <ParagraphText style={{ width: '480px' }}>{t('Grant Type 2')}</ParagraphText>
-          </Column>
+      <CoverWrap>
+        <BaseWrap style={{ paddingTop: '120px' }}>
+          <CenterRow justify="space-between">
+            <Column>
+              <ParagraphText style={{ width: '480px' }}>{t('Grant Introduce 1')}</ParagraphText>
+              <ParagraphText style={{ width: '480px' }}>{t('Grant Type 1')}</ParagraphText>
+              <ParagraphText style={{ width: '480px' }}>{t('Grant Type 2')}</ParagraphText>
+            </Column>
 
-          <ColumnCenter
-            style={{
-              width: '240px',
-              height: '240px',
-              background: '#4195e6',
-              borderRadius: '12px',
-              justifyContent: 'center',
-              padding: '0px 0',
-            }}
-          >
-            <NumberText>10+</NumberText>
-            <SubTitle style={{ marginTop: '24px' }}>{t('Project Type')}</SubTitle>
-          </ColumnCenter>
-        </CenterRow>
-        <CenterRow justify="space-between" style={{ marginTop: '94px', alignItems: 'stretch' }}>
-          <ColumnCenter
-            style={{
-              width: '240px',
-              background: '#41e6af',
-              borderRadius: '12px',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
-            <ColumnCenter>
-              <NumberText>2+</NumberText>
+            <ColumnCenter
+              style={{
+                width: '240px',
+                height: '240px',
+                background: 'rgba(151, 208, 195, 0.21)',
+                justifyContent: 'center',
+                padding: '0px 0',
+              }}
+            >
+              <NumberText>10+</NumberText>
               <SubTitle style={{ marginTop: '24px' }}>{t('Project Type')}</SubTitle>
             </ColumnCenter>
+          </CenterRow>
+          <CenterRow justify="space-between" style={{ marginTop: '94px', alignItems: 'stretch' }}>
+            <ColumnCenter
+              style={{
+                width: '240px',
+                background: 'rgba(151, 208, 195, 0.21)',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <ColumnCenter>
+                <NumberText>2+</NumberText>
+                <SubTitle style={{ marginTop: '24px' }}>{t('Project Type')}</SubTitle>
+              </ColumnCenter>
+            </ColumnCenter>
+            <AutoColumn style={{ width: '610px' }}>
+              <Row>
+                <ParagraphTitle>{t(`Development`)}</ParagraphTitle>
+                {/*  <ParagraphIcon src={require('../../')} /> */}
+              </Row>
+              <ParagraphText style={{ marginTop: '10px' }}>{t(`Grant Introduce 2`)}</ParagraphText>
+
+              <Row style={{ marginTop: '44px' }}>
+                <ParagraphTitle>{t(`Research`)}</ParagraphTitle>
+                {/*  <ParagraphIcon src={require('../../')} /> */}
+              </Row>
+              <ParagraphText style={{ marginTop: '10px' }}>
+                {t(
+                  `KCS Foundation funds research projects that advance and explore protocols in the  Blockchain Technology Stack`
+                )}
+
+                <SmallText style={{ marginTop: '5px' }}>
+                  - {t(`Analysis of existing protocols and implementations`)}
+                </SmallText>
+                <SmallText>- {t(`Security testing`)}</SmallText>
+              </ParagraphText>
+            </AutoColumn>
+          </CenterRow>
+        </BaseWrap>
+        <DivideLine style={{ margin: '100px 0px', opacity: 0.24 }} />
+        {/* mail */}
+        <BaseWrap style={{ padding: '0px 0  100px 0', position: 'relative', zIndex: 2 }}>
+          <ColumnCenter>
+            <TitleText>{t('Open Grants Program')}</TitleText>
+            <MailSubText style={{ width: 'auto', textAlign: 'left' }}>
+              {t('Grant Payment Amount')}
+              <br />
+              {t('Grant Payment')}
+            </MailSubText>
           </ColumnCenter>
-          <AutoColumn style={{ width: '610px' }}>
-            <Row>
-              <ParagraphTitle>{t(`Development`)}</ParagraphTitle>
-              {/*  <ParagraphIcon src={require('../../')} /> */}
-            </Row>
-            <ParagraphText style={{ marginTop: '10px' }}>{t(`Grant Introduce 2`)}</ParagraphText>
-
-            <Row style={{ marginTop: '44px' }}>
-              <ParagraphTitle>{t(`Research`)}</ParagraphTitle>
-              {/*  <ParagraphIcon src={require('../../')} /> */}
-            </Row>
-            <ParagraphText style={{ marginTop: '10px' }}>
-              {t(
-                `KCS Foundation funds research projects that advance and explore protocols in the  Blockchain Technology Stack`
-              )}
-
-              <SmallText>- {t(`Analysis of existing protocols and implementations`)}</SmallText>
-              <SmallText>- {t(`Security testing`)}</SmallText>
-            </ParagraphText>
-          </AutoColumn>
-        </CenterRow>
-      </BaseWrap>
-
-      <DivideLine style={{ margin: '100px 0px', opacity: 0.24 }} />
-
-      {/* mail */}
-      <BaseWrap style={{ padding: '0px 0  100px 0' }}>
-        <ColumnCenter>
-          <TitleText>{t('Open Grants Program')}</TitleText>
-          <MailSubText style={{ width: 'auto', textAlign: 'left' }}>
-            {t('Grant Payment Amount')}
-            <br />
-            {t('Grant Payment')}
-          </MailSubText>
-        </ColumnCenter>
-        <CenterRow justify="center" style={{ marginTop: '42px' }}>
-          <Button type="primary" style={{ width: '145px', height: '36px' }}>
-            {t('Apply Now')}
-          </Button>
-        </CenterRow>
-      </BaseWrap>
+          <CenterRow justify="center" style={{ marginTop: '42px' }}>
+            <ButtonText>
+              <Button type="primary" style={{ width: '145px', height: '36px' }}>
+                <span className="text"> {t('Apply Now')}</span>
+              </Button>
+            </ButtonText>
+          </CenterRow>
+        </BaseWrap>
+        <CoverImgWrap>
+          <BottomCoverImage
+            src={require('../../assets/images/grant/bottom-cover-bg.png').default}
+            width="100%"
+            height="1200px"
+          />
+        </CoverImgWrap>
+      </CoverWrap>
     </GrantsPageWrap>
   )
 }
