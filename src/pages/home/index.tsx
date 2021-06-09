@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
-import { Button, Form, Input, message } from 'antd'
+import { Button, Input, message } from 'antd'
 import axios from 'axios'
 import { RightOutlined } from '@ant-design/icons'
 
@@ -140,12 +140,32 @@ const PartnerItemWrap = styled.div`
   margin: auto;
 `
 
+const SubscribeWrap = styled.div`
+  &:hover {
+    .sub-button {
+      border: 1px solid #000;
+    }
+    .sub-text {
+      color: #000;
+    }
+  }
+`
+
 const Subscribe = styled.span`
   font-family: URWDIN-Regular, URWDIN;
+  color: ${theme.colors.primary};
+  &:hover {
+    color: #000;
+  }
 `
 
 const ButtonText = styled.div`
   color: #000;
+  &:hover {
+    .text {
+      color: ${theme.colors.primary};
+    }
+  }
 `
 
 const IntroduceCoverImage = require('../../assets/images/home/why-top-cover.png').default
@@ -273,11 +293,13 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
             </BannerDescription>
 
             <ButtonText>
-              <Button type="primary" style={{ marginTop: '24px', width: '145px', height: '36px' }} onClick={navToDocs}>
-                <ButtonText>
-                  {t(`Get Start Now`)}
-                  <RightOutlined style={{ fontSize: '10px', marginLeft: '10px' }} />
-                </ButtonText>
+              <Button
+                type="primary"
+                style={{ marginTop: '24px', width: '145px', height: '36px', color: '#000' }}
+                onClick={navToDocs}
+              >
+                <span className="text">{t(`Get Start Now`)}</span>
+                <RightOutlined className="text" style={{ fontSize: '10px', marginLeft: '10px' }} />
               </Button>
             </ButtonText>
           </BannerContentWrap>
@@ -374,14 +396,17 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
                   style={{ border: 'none', backgroundColor: '#fff' }}
                   placeholder={t('Enter your email address')}
                 />
-                <Button
-                  type="primary"
-                  style={{ marginLeft: '20px', background: '#000' }}
-                  onClick={subscribe}
-                  disabled={disable}
-                >
-                  <Subscribe>{t('Subscribe')}</Subscribe>
-                </Button>
+                <SubscribeWrap>
+                  <Button
+                    className="sub-button"
+                    type="primary"
+                    style={{ marginLeft: '20px', background: '#000' }}
+                    onClick={subscribe}
+                    disabled={disable}
+                  >
+                    <Subscribe className="sub-text">{t('Subscribe')}</Subscribe>
+                  </Button>
+                </SubscribeWrap>
               </Row>
             )}
           </ColumnCenter>
