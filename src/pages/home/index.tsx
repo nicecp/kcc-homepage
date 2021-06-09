@@ -89,7 +89,7 @@ const Characteristics = [
 ]
 
 export const MailSubText = styled.span`
-  width: 312px;
+  width: auto;
   height: 24px;
   font-size: 16px;
   font-family: URWDIN-Regular, URWDIN;
@@ -99,14 +99,14 @@ export const MailSubText = styled.span`
 `
 
 const BaseSubText = styled.span`
-  width: 600px;
+  width: '600px';
   height: 24px;
   font-size: 16px;
   font-family: URWDIN-Regular, URWDIN;
   font-weight: 400;
   color: rgba(1, 8, 30, 0.38);
   line-height: 24px;
-  text-align: center;
+  text-align: left;
 `
 const PartnerItemWrap = styled(CenterRow)`
   height: 140px;
@@ -248,7 +248,11 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
       <BaseWrap style={{ padding: '0px 0 65px 0' }}>
         <ColumnCenter>
           <TitleText>{t('Join The KCC Community')}</TitleText>
-          <BaseSubText>{t('KCC  Community Title')}</BaseSubText>
+          <BaseSubText>
+            {t('KCC  Community Title')}
+            <br />
+            {t(`Join KCC Ttile`)}
+          </BaseSubText>
           <RowBetween style={{ marginTop: '44px' }}>{ContactListComponent}</RowBetween>
         </ColumnCenter>
       </BaseWrap>
@@ -259,13 +263,13 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
       <BaseWrap style={{ padding: '75px 0  100px 0' }}>
         <ColumnCenter>
           <TitleText>{t('Subscribe to our Mailing List')}</TitleText>
-          <MailSubText>{t('We’ll send you updates about Matic Network')}</MailSubText>
+          <MailSubText>{t('We’ll send you updates about KuCoin Community Chain')}</MailSubText>
           <Row style={{ width: '400px', marginTop: '16px' }}>
             <Input
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               style={{ border: 'none', backgroundColor: 'rgba(1,8,30,0.04)' }}
-              placeholder={t('Please input your email address')}
+              placeholder={t('Enter your email address')}
             />
             <Button type="primary" style={{ marginLeft: '20px' }} onClick={subscribe} disabled={disable}>
               <Subscribe>{t('Subscribe')}</Subscribe>
