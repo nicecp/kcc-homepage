@@ -27,7 +27,7 @@ const AppIcon = styled.img`
 const AppText = styled.div`
   height: 20px;
   font-size: 14px;
-  font-family: PingFangSC-Regular, PingFang SC;
+  font-family: URWDIN-Regular, URWDIN, PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: #fff;
   margin-top: 10px;

@@ -14,23 +14,23 @@ export const KCC = {
   MAIL_SUBSCRIBE_PROXY: 'https://mailsubscribe.kcc.io/mailchimp-subscribe',
   CONTACT_LIST: [
     {
-      app: 'wechat',
-      icon: require('../assets/images/home/wechat.png').default,
+      app: 'Discord',
+      icon: require('../assets/images/Icons/app/discord-logo@2x.png').default,
       account: 'API_KuCoin01',
     },
     {
       app: 'Twitter',
-      icon: require('../assets/images/home/twitter.png').default,
+      icon: require('../assets/images/Icons/app/twitter-logo@2x.png').default,
       account: 'newapi@kucoin.plus',
     },
     {
       app: 'Telegram',
-      icon: require('../assets/images/home/telegram.png').default,
+      icon: require('../assets/images/Icons/app/telegram-logo@2x.png').default,
       account: '@KuCoin_API_Team',
     },
     {
       app: 'Github',
-      icon: require('../assets/images/home/github.png').default,
+      icon: require('../assets/images/Icons/app/github-logo@2x.png').default,
       account: '2188832500',
     },
   ],
