@@ -3,12 +3,14 @@ import { theme } from '../../constants/theme'
 
 export const TitleText = styled.span`
   font-family: URWDIN-Demi;
+  // font-family: moon;
   font-size: 48px;
   color: ${theme.colors.primary};
   text-align: center;
 `
 export const ParagraphText = styled.div`
   font-family: URWDIN-Regular, PingFangSC-Regular, PingFang SC;
+  // font-family: ftb;
   font-size: 20px;
   color: #ffffff;
   line-height: 32px;

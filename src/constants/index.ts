@@ -13,13 +13,8 @@ export const KCC = {
   MAIL_SUBSCRIBE_PROXY: 'https://mailsubscribe.kcc.io/mailchimp-subscribe',
   TWITTER: 'https://twitter.com/KCCOfficialTW',
   TELEGRAM: 'https://t.me/KCCOfficialEnglishCommunity',
-  DISCLAIMER: 'https://docs.kcc.network/#/en-us/?id=disclaimers',
+  DISCLAIMER: 'https://docs.kcc.io/#/en-us/?id=disclaimers',
   CONTACT_LIST: [
-    {
-      app: 'Discord',
-      icon: require('../assets/images/Icons/app/discord-logo@2x.png').default,
-      route: 'https://discord.com/invite/H5ucJydSyd',
-    },
     {
       app: 'Twitter',
       icon: require('../assets/images/Icons/app/twitter-logo@2x.png').default,
@@ -34,6 +29,11 @@ export const KCC = {
       app: 'Github',
       icon: require('../assets/images/Icons/app/github-logo@2x.png').default,
       route: 'https://github.com/kucoin-community-chain',
+    },
+    {
+      app: 'Discord',
+      icon: require('../assets/images/Icons/app/discord-logo@2x.png').default,
+      route: 'https://discord.com/invite/H5ucJydSyd',
     },
   ],
   PARTNER_LIST: [

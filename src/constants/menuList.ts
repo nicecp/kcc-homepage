@@ -62,6 +62,17 @@ export const MENU_LIST = [
     hasGroup: true,
     childrens: [
       {
+        groupName: 'Explorer',
+        groupMember: [
+          {
+            title: 'Explorer',
+            subTitle: 'View information on the KCC public chain',
+            route: KCC.EXPLORER,
+            icon: require('../assets/images/Icons/menu/chrome@2x.png').default,
+          },
+        ],
+      },
+      {
         groupName: 'Dapp',
         groupMember: [
           {
@@ -98,17 +109,6 @@ export const MENU_LIST = [
             subTitle: 'Coming Soon...',
             route: '',
             icon: require('../assets/images/Icons/menu/wallet@2x.png').default,
-          },
-        ],
-      },
-      {
-        groupName: 'Explorer',
-        groupMember: [
-          {
-            title: 'Explorer',
-            subTitle: 'View information on the KCC public chain',
-            route: KCC.EXPLORER,
-            icon: require('../assets/images/Icons/menu/chrome@2x.png').default,
           },
         ],
       },
