@@ -116,7 +116,7 @@ const AppMenu: React.FunctionComponent<AppMenuProps> = () => {
 
       const lists = subMenuList?.map((item) => {
         return (
-          <Menu.Item key={item.title} style={{ height: 'auto', lineHeight: '20px', color: theme.colors.primary }}>
+          <Menu.Item key={item.title} style={{ height: 'auto', lineHeight: '25px', color: theme.colors.primary }}>
             <NavItem {...item} />
           </Menu.Item>
         )
@@ -148,7 +148,7 @@ const AppMenu: React.FunctionComponent<AppMenuProps> = () => {
 
         const groupItemDom = groupMember.map((groupChild) => {
           return (
-            <Menu.Item key={groupChild.title} style={{ height: 'auto', lineHeight: '20px' }}>
+            <Menu.Item key={groupChild.title} style={{ height: 'auto', lineHeight: '25px' }}>
               <NavItem {...groupChild} />
             </Menu.Item>
           )
@@ -191,6 +191,7 @@ const AppMenu: React.FunctionComponent<AppMenuProps> = () => {
   return (
     <MenuWrap>
       <Menu
+        // openKeys={['Ecosystem']}
         selectedKeys={[]}
         mode="horizontal"
         style={{ border: 'none', background: 'transparent', color: theme.colors.primary }}
