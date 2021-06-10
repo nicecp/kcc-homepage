@@ -336,12 +336,8 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
                 >
                   {t('Why KuCoin Community Chain')}
                 </TitleText>
-                <ParagraphText style={{ width: 'auto', textAlign: 'justify' }}>
-                  {t(`KCC First Introduction`)}
-                </ParagraphText>
-                <ParagraphText style={{ width: 'auto', textAlign: 'justify' }}>
-                  {t(`KCC Second Introduction`)}
-                </ParagraphText>
+                <ParagraphText style={{ width: 'auto' }}>{t(`KCC First Introduction`)}</ParagraphText>
+                <ParagraphText style={{ width: 'auto' }}>{t(`KCC Second Introduction`)}</ParagraphText>
               </Column>
             </RowBetween>
             {/*  <DivideLine style={{ marginTop: '80px', opacity: 0.24 }} /> */}
