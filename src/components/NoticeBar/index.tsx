@@ -37,11 +37,13 @@ const NoticeBgWrap = styled.div`
 `
 
 const Text = styled.span`
+  padding: 0;
   font-family: URWDIN-Regular;
   font-size: 12px;
   color: #fff !important;
   margin-left: 8px;
   cursor: pointer;
+  width: 750px;
   max-width: 750px;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -71,8 +73,8 @@ const NoticeBar: React.FunctionComponent<NoticeBarProps> = () => {
 
   const [announcementList, setAnnoucementList] = React.useState<Announcement[]>([
     {
-      title: '...',
-      pubDate: '...',
+      title: 'Loading...',
+      pubDate: '',
       link: '',
     },
   ])
@@ -82,7 +84,7 @@ const NoticeBar: React.FunctionComponent<NoticeBarProps> = () => {
       const res = await axios({
         url: KCC.MEDIA_API,
       })
-      const list = res?.data?.items?.splice(0, 3)
+      const list = [...res?.data?.items?.splice(0, 3)]
       console.log(list)
       setAnnoucementList(() => list)
     } catch {
@@ -104,7 +106,7 @@ const NoticeBar: React.FunctionComponent<NoticeBarProps> = () => {
     return announcementList.map((item, index) => {
       return (
         <div key={index}>
-          <RowBetween style={{ width: '100%', alignItems: 'cetner' }}>
+          <RowBetween style={{ width: 'auto', marginTop: '10px', alignItems: 'cetner' }}>
             <Text onClick={nav2Announcement.bind(null, item.link)}>{item.title}</Text>
             <Date>{item.pubDate}</Date>
           </RowBetween>
@@ -129,7 +131,7 @@ const NoticeBar: React.FunctionComponent<NoticeBarProps> = () => {
     <NoticeBarWrap>
       <NoticeBgWrap />
       <SoundFilled style={{ color: theme.colors.primary }} />
-      <div style={{ maxWidth: '940px' }}>
+      <div style={{ maxWidth: '940px', height: '40px', overflow: 'hidden' }}>
         <Slider {...settings}>{List}</Slider>
       </div>
     </NoticeBarWrap>

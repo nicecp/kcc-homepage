@@ -59,6 +59,7 @@ export const BannerContentWrap = styled.div`
 export const BannerTitle = styled.span`
   line-height: 64px;
   font-size: 60px;
+  // font-family: moon;
   font-family: URWDIN-Bold, PingFangSC-Medium, PingFang SC;
   font-weight: 500;
   color: ${theme.colors.primary};
@@ -66,6 +67,7 @@ export const BannerTitle = styled.span`
 `
 export const BannerDescription = styled.span`
   font-family: URWDIN-Regular;
+  // font-family: ftb;
   font-size: 20px;
   color: #fff;
   line-height: 32px;
