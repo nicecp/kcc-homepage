@@ -42,12 +42,11 @@ const NavSubTitle = styled.div`
   text-align: center;
   padding: 0;
   margin: 0;
-  max-width: 200px;
+  width: auto;
+  max-width: 230px;
   word-wrap: wrap;
   white-space: wrap !important;
-  text-align: left;import { useTranslation } from 'react-i18next';
-import { theme } from '../../constants/theme';
-
+  text-align: left;
 `
 
 const NavItemWrap = styled.div`
@@ -191,7 +190,7 @@ const AppMenu: React.FunctionComponent<AppMenuProps> = () => {
   return (
     <MenuWrap>
       <Menu
-        // openKeys={['Ecosystem']}
+        // openKeys={['Developers']}
         selectedKeys={[]}
         mode="horizontal"
         style={{ border: 'none', background: 'transparent', color: theme.colors.primary }}
