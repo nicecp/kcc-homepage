@@ -14,6 +14,7 @@ export const KCC = {
   TWITTER: 'https://twitter.com/KCCOfficialTW',
   TELEGRAM: 'https://t.me/KCCOfficialEnglishCommunity',
   DISCLAIMER: 'https://docs.kcc.io/#/en-us/?id=disclaimers',
+  FAQ: 'https://docs.kcc.io/#/en-us/?id=faq',
   CONTACT_LIST: [
     {
       app: 'Twitter',

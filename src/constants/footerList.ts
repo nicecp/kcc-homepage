@@ -49,7 +49,7 @@ export const FOOTER_LIST = [
       },
       {
         navText: 'FAQ',
-        navRoute: KCC.DOCS_URL,
+        navRoute: KCC.FAQ,
       },
       /* {
         navText: 'Media kit',
