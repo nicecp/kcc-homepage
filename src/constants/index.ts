@@ -15,6 +15,7 @@ export const KCC = {
   TELEGRAM: 'https://t.me/KCCOfficialEnglishCommunity',
   DISCLAIMER: 'https://docs.kcc.io/#/en-us/?id=disclaimers',
   FAQ: 'https://docs.kcc.io/#/en-us/?id=faq',
+  GRANTS: 'https://github.com/kucoin-community-chain/kcc-grants',
   CONTACT_LIST: [
     {
       app: 'Twitter',
