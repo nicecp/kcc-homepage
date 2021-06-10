@@ -19,7 +19,7 @@ const ImageDescription = styled(ParagraphText)<{ direction: string }>`
   order: ${({ direction }) => (direction === 'left' ? 1 : 2)};
   width: auto;
   max-width: 480px;
-  text-align: justify;
+  text-align: left;
   font-size: 24px;
   padding-left: ${({ direction }) => (direction === 'left' ? '0px' : '80px')};
 `
