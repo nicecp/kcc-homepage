@@ -1,7 +1,7 @@
 import { Button } from 'antd'
 import React from 'react'
 import styled from 'styled-components'
-import { BannerContentWrap, BannerDescription, BannerTitle, BannerWrap, MailSubText } from '../home'
+import { BannerContentWrap, BannerDescription, BannerTitle, BannerWrap } from '../home'
 import { useTranslation } from 'react-i18next'
 import { BaseWrap, ButtonText } from '../home/index'
 import Row, { CenterRow } from '../../components/Row/index'
@@ -12,11 +12,29 @@ import { theme } from '../../constants/theme'
 
 export interface GrantsPageProps {}
 
+const MailSubText = styled.div`
+  width: auto;
+  height: 24px;
+  font-size: 16px;
+  font-family: URWDIN-Regular, URWDIN;
+  font-weight: 400;
+  color: #fff;
+  line-height: 24px;
+`
+
 const GrantsPageWrap = styled.div`
   position: relative;
   background: #000;
   height: auto;
   z-index: 1;
+`
+
+const GrantBgCover = styled.img`
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
 `
 
 const CoverWrap = styled.div`
@@ -43,7 +61,6 @@ export const GrantBannerWrap = styled.div`
   flex-flow: row no-wrap;
   justify-content: center;
   align-items: center;
-  background: url(${BannerBgImage}) top center no-repeat;
   background-size: auto 100%;
   z-index: 3;
 `
@@ -94,7 +111,12 @@ const GrantsPage: React.FunctionComponent<GrantsPageProps> = () => {
   return (
     <GrantsPageWrap>
       {/* banner */}
-      <GrantBannerWrap className="grant-banner-container">
+      <GrantBgCover
+        src={require('../../assets/images/grant/grant-banner-bg@2x.png').default}
+        width="auto"
+        height="460px"
+      />
+      <GrantBannerWrap>
         <BannerContentWrap>
           <BannerTitle>{t('Grant Program')}</BannerTitle>
           <BannerDescription>

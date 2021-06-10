@@ -86,7 +86,7 @@ const NavItem: React.FunctionComponent<NavItemChildrenType> = (props) => {
 
   return (
     <NavItemWrap onClick={nav2Target.bind(null, props.route)}>
-      <NavIcon src={props.icon ? props.icon : require('../../assets/images/home/wechat.png').default}></NavIcon>
+      <NavIcon src={props.icon}></NavIcon>
       <TitleWrap>
         <NavTitle>{t(`${props.title}`)}</NavTitle>
         <NavSubTitle style={{ whiteSpace: 'normal' }}>{t(`${props.subTitle}`)}</NavSubTitle>

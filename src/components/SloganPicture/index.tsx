@@ -17,10 +17,10 @@ const PictureWrap = styled(Row)<{ direction: string }>`
 `
 const ImageDescription = styled(ParagraphText)<{ direction: string }>`
   order: ${({ direction }) => (direction === 'left' ? 1 : 2)};
+  width: auto;
   max-width: 480px;
   text-align: justify;
   font-size: 24px;
-  width: 480px;
   padding-left: ${({ direction }) => (direction === 'left' ? '0px' : '80px')};
 `
 

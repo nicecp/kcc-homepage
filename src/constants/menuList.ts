@@ -120,8 +120,10 @@ export const MENU_LIST = [
     childrens: [
       {
         title: 'Activites',
-        subTitle: 'View the exciting activites information, Includes hackathons,meetups,and more',
-        route: '/community/activity',
+        /*  subTitle: 'View the exciting activites information, Includes hackathons,meetups,and more',
+        route: '/community/activity', */
+        subTitle: 'Coming Soon...',
+        route: '',
         icon: require('../assets/images/Icons/menu/activity@2x.png').default,
       },
       {

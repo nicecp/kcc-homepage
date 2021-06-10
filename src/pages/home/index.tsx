@@ -51,6 +51,9 @@ export const BannerContentWrap = styled.div`
   justify-content: center;
   align-items: flex-start;
   width: 1200px;
+  background: transparent;
+  position: relative;
+  z-index: 1;
 `
 export const BannerTitle = styled.span`
   line-height: 64px;
@@ -85,19 +88,19 @@ const ImageWrap = styled(Row)`
 const Characteristics = [
   {
     description: 'KCC INTRODUCE 1',
-    image: require('../../assets/images/home/c1.png').default,
+    image: require('../../assets/images/home/introduce-1@2x.png').default,
   },
   {
     description: 'KCC INTRODUCE 2',
-    image: require('../../assets/images/home/c2.png').default,
+    image: require('../../assets/images/home/introduce-2@2x.png').default,
   },
   {
     description: 'KCC INTRODUCE 3',
-    image: require('../../assets/images/home/c3.png').default,
+    image: require('../../assets/images/home/introduce-3@2x.png').default,
   },
   {
     description: 'KCC INTRODUCE 4',
-    image: require('../../assets/images/home/c4.png').default,
+    image: require('../../assets/images/home/introduce-4@2x.png').default,
   },
 ]
 
@@ -107,7 +110,7 @@ export const MailSubText = styled.span`
   font-size: 16px;
   font-family: URWDIN-Regular, URWDIN;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.6);
+  color: #000;
   line-height: 24px;
 `
 
@@ -286,7 +289,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
     <>
       <HomePageWrap>
         {/* banner */}
-        <BannerCoverWrap src={BannerBgHover} />
+        {/*    <BannerCoverWrap src={BannerBgHover} /> */}
         <BannerWrap className="home-banner-container">
           <BannerContentWrap>
             <BannerTitle>{t('Mission')}</BannerTitle>
@@ -317,12 +320,21 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
           <BaseWrap style={{ padding: '80px 0', position: 'relative', zIndex: 1 }}>
             <RowBetween style={{ alignItems: 'center', paddingTop: '68px' }}>
               <ImageWrap>
-                <img src={require('../../assets/test.png').default} style={{ width: '80%' }} />
+                <img
+                  src={require('../../assets/images/home/home-why-pic@2x.png').default}
+                  style={{ width: '380px', height: 'auto' }}
+                />
               </ImageWrap>
               <Column style={{ marginLeft: '50px' }}>
-                <TitleText style={{ width: '660px', textAlign: 'left' }}>{t('Why KuCoin Community Chain')}</TitleText>
-                <ParagraphText style={{ width: 'auto' }}>{t(`KCC First Introduction`)}</ParagraphText>
-                <ParagraphText style={{ width: 'auto' }}>{t(`KCC Second Introduction`)}</ParagraphText>
+                <TitleText style={{ width: 'auto', textAlign: 'justify', fontSize: '39px' }}>
+                  {t('Why KuCoin Community Chain')}
+                </TitleText>
+                <ParagraphText style={{ width: 'auto', textAlign: 'justify' }}>
+                  {t(`KCC First Introduction`)}
+                </ParagraphText>
+                <ParagraphText style={{ width: 'auto', textAlign: 'justify' }}>
+                  {t(`KCC Second Introduction`)}
+                </ParagraphText>
               </Column>
             </RowBetween>
             {/*  <DivideLine style={{ marginTop: '80px', opacity: 0.24 }} /> */}
@@ -358,7 +370,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
             <TitleText>{t('Partner')}</TitleText>
             <PartnerListWrap>{PartnerListComponent}</PartnerListWrap>
           </ColumnCenter>
-          <DivideLine style={{ marginTop: '80px', opacity: 0.24 }} />
+          {/*         <DivideLine style={{ marginTop: '80px', opacity: 0.24 }} /> */}
         </BaseWrap>
 
         {/* Join the KCC Community */}
