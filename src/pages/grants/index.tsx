@@ -9,6 +9,7 @@ import { DivideLine, ParagraphText, TitleText } from '../../components/Common'
 import Column, { ColumnCenter } from '../../components/Column'
 import { AutoColumn } from '../../components/Column/index'
 import { theme } from '../../constants/theme'
+import { KCC } from '../../constants/index'
 
 export interface GrantsPageProps {}
 
@@ -108,6 +109,10 @@ const BottomCoverImage = styled.img`
 const GrantsPage: React.FunctionComponent<GrantsPageProps> = () => {
   const { t } = useTranslation()
 
+  const nav2Grants = () => {
+    window.open(KCC.GRANTS, '_blank')
+  }
+
   return (
     <GrantsPageWrap>
       {/* banner */}
@@ -125,7 +130,7 @@ const GrantsPage: React.FunctionComponent<GrantsPageProps> = () => {
             )}
           </BannerDescription>
           <ButtonText>
-            <Button type="primary" style={{ marginTop: '24px', width: '145px', height: '36px' }}>
+            <Button type="primary" style={{ marginTop: '24px', width: '145px', height: '36px' }} onClick={nav2Grants}>
               <span className="text">{t('Apply Now')}</span>
             </Button>
           </ButtonText>
@@ -207,7 +212,7 @@ const GrantsPage: React.FunctionComponent<GrantsPageProps> = () => {
           </ColumnCenter>
           <CenterRow justify="center" style={{ marginTop: '42px' }}>
             <ButtonText>
-              <Button type="primary" style={{ width: '145px', height: '36px' }}>
+              <Button type="primary" style={{ width: '145px', height: '36px' }} onClick={nav2Grants}>
                 <span className="text"> {t('Apply Now')}</span>
               </Button>
             </ButtonText>
