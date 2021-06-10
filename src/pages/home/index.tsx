@@ -242,7 +242,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
     return <PartnerItemWrap key={index} />
   })
 
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
 
   const [email, setEmail] = React.useState<string>('')
   const [disable, setDisable] = React.useState<boolean>(false)
@@ -326,7 +326,14 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
                 />
               </ImageWrap>
               <Column style={{ marginLeft: '50px' }}>
-                <TitleText style={{ width: 'auto', textAlign: 'justify', fontSize: '39px' }}>
+                <TitleText
+                  style={{
+                    width: '460px',
+                    textAlign: 'left',
+                    whiteSpace: 'nowrap',
+                    fontSize: i18n.language === 'en' ? '44px' : '48px',
+                  }}
+                >
                   {t('Why KuCoin Community Chain')}
                 </TitleText>
                 <ParagraphText style={{ width: 'auto', textAlign: 'justify' }}>
