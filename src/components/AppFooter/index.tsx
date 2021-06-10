@@ -118,7 +118,9 @@ const AppFooter: React.FunctionComponent<AppFooterProps> = () => {
           </CenterRow>
           <RowBetween>{FooterNavList}</RowBetween>
         </Row>
-        <CopyRightText>CopyRight © 2017 - 2020 KuChain.com. All Rights Reserved.</CopyRightText>
+        <CopyRightText>
+          CopyRight © 2017 - {`${new Date().getFullYear()}`} KuChain.com. All Rights Reserved.
+        </CopyRightText>
       </AppFooterContentWrap>
     </AppFooterWrap>
   )

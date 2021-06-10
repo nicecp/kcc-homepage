@@ -82,7 +82,9 @@ const NoticeBar: React.FunctionComponent<NoticeBarProps> = () => {
       const res = await axios({
         url: KCC.MEDIA_API,
       })
-      setAnnoucementList(() => res?.data?.items?.splice(0, 3))
+      const list = res?.data?.items?.splice(0, 3)
+      console.log(list)
+      setAnnoucementList(() => list)
     } catch {
       message.error(t(`Get Announcement Faied.`))
     }
@@ -120,8 +122,6 @@ const NoticeBar: React.FunctionComponent<NoticeBarProps> = () => {
     speed: 1000,
     slidesToScroll: 1,
     vertical: true,
-    nextArrow: <span></span>,
-    prevArrow: <span></span>,
     verticalSwiping: true,
   }
 

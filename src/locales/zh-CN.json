@@ -64,8 +64,8 @@
   "Subscribe": "订阅",
   "In support of our mission, the KCS Foundation grants program funds software development and research in the field of decentralized software protocols.": "为了支持我们的使命，KCS基金会资助了去中心化领域应用的开发和研究。",
   "Grant program": "资助计划",
-  "Grant Introduce 1": "我们的资助计划涵盖的范围广泛，包括链上生态应用诸如钱包、浏览器，",
-  "Grant Type 1": "去中心化交易所，诸如各类Swap，",
+  "Grant Introduce 1": "我们的资助计划涵盖的范围广泛，包括链上生态应用诸如钱包、浏览器；",
+  "Grant Type 1": "去中心化交易所，诸如各类Swap；",
   "Grant Type 2": "以及架构在传统金融和供应链或是传统业务上链的项目都在我们的资助计划范围之内。",
   "Development": "开发",
   "Grant Introduce 2": "KCS基金会支持各类基于KCC公链的底层、工具、应用等开发，并以去中心化的方式进行运作。来促使KCC生态能够更加完备，目的是为广大社区用户提供更加高速便捷并且低成本的区块链使用体验。",
@@ -78,6 +78,7 @@
   "Grant Payment": "这些应用程序在GitHub上被透明地跟踪并支付加密货币。",
   "Open Grants Program": "开放资助计划",
   "Enter your email address": "请输入你的邮箱地址",
-  "undefined": " ",
-  "Send Updaets Text": "我们将向您发送有关KuCoin社区链的最新信息"
+  "Apply Now": "立即申请",
+  "Send Updaets Text": "我们将向您发送有关KuCoin社区链的最新信息",
+  "Subscribe Title": "订阅我们获得更多消息"
 }

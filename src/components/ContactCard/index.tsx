@@ -9,7 +9,7 @@ import { theme } from '../../constants/theme'
 export interface ContactCardProps {
   icon: string
   app: string
-  account: string
+  route: string
 }
 
 const ContactCardWrap = styled(ColumnCenter)`
@@ -22,6 +22,10 @@ const AppIcon = styled.img`
   width: 64px;
   height: 64px;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.2);
+  }
 `
 
 const AppText = styled.div`
@@ -55,10 +59,16 @@ const ContactCard: React.FunctionComponent<ContactCardProps> = (props) => {
     message.success(`${account} 已经复制到剪贴板`)
   }
 
+  const nav2Target = () => {
+    if (props.route) {
+      window.open(props.route, '_blank')
+    }
+  }
+
   return (
     <ContactCardWrap>
       <ColumnCenter>
-        <AppIcon src={props.icon} />
+        <AppIcon src={props.icon} onClick={nav2Target} />
         <AppText>{t(props.app)}</AppText>
       </ColumnCenter>
       {/* <Row style={{ justifyContent: 'center', alignItems: 'center', marginTop: '11px' }}>
