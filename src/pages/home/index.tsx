@@ -21,7 +21,8 @@ import { theme } from '../../constants/theme'
 export interface HomePageProps {}
 
 const BannerBgImage = require('../../assets/images/home/banner-bg@2x.png').default
-const BannerBgHover = require('../../assets/images/home/home-top-cover@2x.png').default
+//const BannerBgImage = require('../../assets/images/grant/grant-banner-bg@2x.png').default
+// const BannerBgHover = require('../../assets/images/home/home-top-cover@2x.png').default
 
 export const HomePageWrap = styled.div`
   position: relative;
@@ -385,7 +386,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
               <br />
               {t(`Join KCC Ttile`)}
             </BaseSubText>
-            <RowBetween style={{ marginTop: '54px' }}>{ContactListComponent}</RowBetween>
+            <RowBetween style={{ marginTop: '70px' }}>{ContactListComponent}</RowBetween>
           </ColumnCenter>
         </BaseWrap>
         <JoinButtonCover />
@@ -397,8 +398,8 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
       <HomePageWrap>
         <MailWrap>
           <ColumnCenter>
-            <TitleText style={{ color: '#000' }}>{t('Subscribe to our Mailing List')}</TitleText>
-            <MailSubText>{t('We’ll send you updates about KuCoin Community Chain')}</MailSubText>
+            <TitleText style={{ color: '#000' }}>{t('Subscribe Title')}</TitleText>
+            <MailSubText>{t('Send Updaets Text')}</MailSubText>
             {subscribed ? (
               <Row style={{ width: 'auto', marginTop: '16px' }}>
                 <MailSubText style={{ fontSize: '24px', textAlign: 'center' }}>
@@ -420,6 +421,7 @@ const HomePage: React.FunctionComponent<HomePageProps> = () => {
                     style={{ marginLeft: '20px', background: '#000' }}
                     onClick={subscribe}
                     disabled={disable}
+                    loading={disable}
                   >
                     <Subscribe className="sub-text">{t('Subscribe')}</Subscribe>
                   </Button>

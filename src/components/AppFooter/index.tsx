@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import Row from '../Row'
 import Column from '../Column/index'
-import { KCC } from '../../constants'
 import { useTranslation } from 'react-i18next'
 import { RowBetween, CenterRow } from '../Row/index'
 import { FOOTER_LIST } from '../../constants/footerList'
@@ -118,7 +117,7 @@ const AppFooter: React.FunctionComponent<AppFooterProps> = () => {
           </CenterRow>
           <RowBetween>{FooterNavList}</RowBetween>
         </Row>
-        <CopyRightText>CopyRight © 2017 - 2020 KuChain.com. All Rights Reserved.</CopyRightText>
+        <CopyRightText>CopyRight © 2017 - {`${new Date().getFullYear()}`} kcc.io All Rights Reserved.</CopyRightText>
       </AppFooterContentWrap>
     </AppFooterWrap>
   )
